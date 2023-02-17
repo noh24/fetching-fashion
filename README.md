@@ -5,6 +5,6 @@
 ## Planning and Research Log
 
 * Learning Redux 
-* Following tutorial on redux toolkit (still working x3)
+* Following tutorial on redux toolkit (still working x4) https://www.youtube.com/watch?v=NqzdVN2tyvQ&t=10380s&ab_channel=DaveGray
 
 ## License
