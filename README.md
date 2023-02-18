@@ -6,5 +6,6 @@
 
 * Learning Redux 
 * Following tutorial on redux toolkit (still working x5) https://www.youtube.com/watch?v=NqzdVN2tyvQ&t=10380s&ab_channel=DaveGray
+* Learning about CMS and HEADLESS CMS (Content Management System)
 
 ## License
