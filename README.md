@@ -1,5 +1,5 @@
 <p align=center>
-    <img src='./public/images/fetching-fashion-logo.png' alt='logo' width="250px">
+    <img src='./frontend/public/images/fetching-fashion-logo.png' alt='logo' width="250px">
     <h1 align=center>Fetching Fashion Co</h1>
     <h3 align=center>Get Your Paws on Fetching Fashion - The Bark of the Town!</h3>
     <p align=center>Online Dog Clothing Site</p>
@@ -12,6 +12,6 @@
 -   Learning about CMS and HEADLESS CMS (Content Management System)
 -   Learning about Strapi (Headless CMS)
 -   Learning about MongoDb x3
--   Learning about Mongoose and Express and Node x1
+-   Learning about Mongoose and Express and Node x2
 
 ## License
