@@ -5,7 +5,6 @@
     <p align=center>Online Dog Clothing Site</p>
 </p>
 
-
 ## Planning and Research Log
 
 -   Learning Redux
@@ -13,5 +12,6 @@
 -   Learning about CMS and HEADLESS CMS (Content Management System)
 -   Learning about Strapi (Headless CMS)
 -   Learning about MongoDb x3
+-   Learning about Mongoose and Express and Node
 
 ## License
