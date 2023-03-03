@@ -7,11 +7,12 @@
 
 ## Planning and Research Log
 
--   Learning Redux
--   Following tutorial on redux toolkit (still working x5) https://www.youtube.com/watch?v=NqzdVN2tyvQ&t=10380s&ab_channel=DaveGray
--   Learning about CMS and HEADLESS CMS (Content Management System)
--   Learning about Strapi (Headless CMS)
--   Learning about MongoDb x3
--   Learning about Mongoose and Express and Node x5
+- Learning Redux
+- Following tutorial on redux toolkit (still working x5) https://www.youtube.com/watch?v=NqzdVN2tyvQ&t=10380s&ab_channel=DaveGray
+- Learning about CMS and HEADLESS CMS (Content Management System)
+- Learning about Strapi (Headless CMS)
+- Learning about MongoDb x3
+- Learning about Mongoose and Express and Node x5
+- Learning about Express Router / API end points
 
 ## License
