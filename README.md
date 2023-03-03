@@ -13,6 +13,5 @@
 - Learning about Strapi (Headless CMS)
 - Learning about MongoDb x3
 - Learning about Mongoose and Express and Node x5
-- Learning about Express Router / API end points / backend user verification with express x2
-
+- Learning about Express Router / API end points / backend user verification with express x3
 ## License
