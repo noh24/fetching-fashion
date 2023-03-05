@@ -12,6 +12,7 @@
 * users should be able to click on individual product and navigate to a product details page
 * website should have a cart that can contain products
 * users should be add to and remove from cart
+* should set up back end (express js + Node)
 
 
 ## What tools, frameworks, libraries, APIs, modules and/or other resources (whatever is specific to your track, and your language) will you use to create this MVP? List them all here. Be specific.
@@ -19,6 +20,8 @@
 * react
 * tailwind
 * javascript
+* express
+* node
 
 
 ## If you finish developing the minimum viable product (MVP) with time to spare, what will you work on next? Describe these features here: Be specific.
@@ -29,13 +32,12 @@
 * checkout function should clear the cart
 * purchases should be stored in database
 * should connect to a database (mongoDB OR firestore)
-* should set up back end (express js or Node)
 
 ## What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
 
-* stripe api
+* stripe api / paypal
 * mongoDb / firestore
-* express js or node
+* express js + node
 
 Is there anything else you'd like your instructor to know?
 
