@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FeatureWinter from "./FeatureWinter";
+import FeaturedWinterApparel from "./FeaturedWinterApparel";
 
 const Home = () => {
   return (
@@ -14,10 +14,10 @@ const Home = () => {
       <section>
         <Link to={`/products/winter-apparel`}>
           <h1>Shop Winter Apparel</h1>
-          <div>
-            <FeatureWinter />
-          </div>
         </Link>
+          <div>
+            <FeaturedWinterApparel />
+          </div>
       </section>
     </main>
   );

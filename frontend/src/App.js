@@ -7,9 +7,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<SharedLayout/>}>
-          <Route index element={<Home/>}></Route>
-          <Route path='/products/winter-apparel' element={<WinterApparel/>}></Route>
+        <Route path='/' element={<SharedLayout />}>
+          <Route index element={<Home />}></Route>
+          <Route
+            path='/products/winter-apparel'
+            element={<WinterApparel />}
+          ></Route>
         </Route>
       </Routes>
     </BrowserRouter>
