@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import useProductReducer from "../Reducers/useProductReducer";
 import Product from "../Shared/Product";
 import getError from "../Utility/getError";
@@ -17,20 +18,26 @@ const WinterApparel = () => {
         dispatch({ type: "FETCH_FAIL", payload: getError(err) });
       }
     };
-    fetchData()
+    fetchData();
   }, [dispatch]);
 
-  return loading ? (
-    <div>Loading...</div>
-  ) : error ? (
-    <div>{error}</div>
-  ) : (
+  return (
     <main>
-      <section>
-        {products.map((item) => (
-          <Product key={item._id} product={item}></Product>
-        ))}
-      </section>
+      <Helmet>
+        <title>Winter Apparel</title>
+      </Helmet>
+      <h1>Winter Apparel</h1>
+      {loading ? (
+        <div>Loading...</div>
+      ) : error ? (
+        <div>{error}</div>
+      ) : (
+        <section>
+          {products.map((item) => (
+            <Product key={item._id} product={item}></Product>
+          ))}
+        </section>
+      )}
     </main>
   );
 };

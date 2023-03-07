@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import FeaturedWinterApparel from "./FeaturedWinterApparel";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   return (
     <main>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <section>
         <img src='/images/home-display1.png' alt='home-display1' />
         <img src='/images/home-display2.png' alt='home-display2' />
@@ -15,9 +19,9 @@ const Home = () => {
         <Link to={`/products/winter-apparel`}>
           <h1>Shop Winter Apparel</h1>
         </Link>
-          <div>
-            <FeaturedWinterApparel />
-          </div>
+        <div>
+          <FeaturedWinterApparel />
+        </div>
       </section>
     </main>
   );
