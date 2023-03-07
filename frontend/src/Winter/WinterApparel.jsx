@@ -1,6 +1,7 @@
 import React from "react";
-import data from "../data";
+import data from "../data/data";
 import Product from "../Shared/Product";
+import SizeGuide from "../Shared/SizeGuide";
 
 const WinterApparel = () => {
   return (
@@ -13,7 +14,6 @@ const WinterApparel = () => {
           <Product key={item._id} product={item}></Product>
         ))}
       </section>
-      <section></section>
     </main>
   );
 };

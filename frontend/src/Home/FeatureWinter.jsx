@@ -1,6 +1,6 @@
 import React from "react";
 import Product from "../Shared/Product";
-import data from "../data";
+import data from "../data/data";
 
 const {
   products: { fleeceSherpas, jacketVests },
