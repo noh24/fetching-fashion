@@ -22,7 +22,7 @@ const Header = () => {
       </div>
       <div>
         <NavLink to='/cart'>Cart</NavLink>
-        <span>{cart.length > 0 && cart.length}</span>
+        <span>{cart.length > 0 && cart.reduce((acc, curr) => acc + curr.quantity, 0)}</span>
       </div>
       <div>
         <NavLink>Profile</NavLink>

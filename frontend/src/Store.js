@@ -12,9 +12,19 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
+      const newItem = action.payload;
+      const existItem = state.cart.find(
+        (item) => item._id === action.payload._id
+      );
+
+      const updatedCart = existItem
+        ? state.cart.map((item) =>
+            (item._id === existItem._id) ? newItem : item
+          )
+        : [...state.cart, newItem];
       return {
         ...state,
-        cart: [...state.cart, action.payload],
+        cart: updatedCart,
       };
     default:
       throw new Error("No matching action.type");
