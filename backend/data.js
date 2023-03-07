@@ -2,7 +2,6 @@ const data = {
   products: {
     fleeceSherpas: [
       {
-        _id: 1,
         name: "fleece sherpa jacket",
         category: "winter apparel",
         color: "black",
@@ -28,7 +27,6 @@ const data = {
         ],
       },
       {
-        _id: 2,
         name: "fleece sherpa jacket",
         category: "winter apparel",
         color: "green",
@@ -54,7 +52,6 @@ const data = {
         ],
       },
       {
-        _id: 3,
         name: "fleece sherpa jacket",
         category: "winter apparel",
         color: "grey",
@@ -80,7 +77,6 @@ const data = {
         ],
       },
       {
-        _id: 4,
         name: "fleece sherpa jacket",
         category: "winter apparel",
         color: "maroon",
@@ -106,7 +102,6 @@ const data = {
         ],
       },
       {
-        _id: 5,
         name: "fleece sherpa jacket",
         category: "winter apparel",
         color: "orange",
@@ -135,7 +130,6 @@ const data = {
 
     jacketVests: [
       {
-        _id: 6,
         name: "parka jacket vest",
         category: "winter apparel",
         color: "black",
@@ -159,7 +153,6 @@ const data = {
         ],
       },
       {
-        _id: 7,
         name: "parka jacket vest",
         category: "winter apparel",
         color: "olive",
@@ -183,7 +176,6 @@ const data = {
         ],
       },
       {
-        _id: 8,
         name: "parka jacket vest",
         category: "winter apparel",
         color: "red",

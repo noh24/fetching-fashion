@@ -1,12 +1,11 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import useProductReducer from "../Reducers/productReducer";
+import useProductReducer from "../Reducers/useProductReducer";
 import Product from "../Shared/Product";
 import getError from "../Utility/getError";
 
 const WinterApparel = () => {
   const { loading, error, products, dispatch } = useProductReducer();
-  const { fleeceSherpas, jacketVests } = products;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,10 +27,7 @@ const WinterApparel = () => {
   ) : (
     <main>
       <section>
-        {fleeceSherpas.map((item) => (
-          <Product key={item._id} product={item}></Product>
-        ))}
-        {jacketVests.map((item) => (
+        {products.map((item) => (
           <Product key={item._id} product={item}></Product>
         ))}
       </section>

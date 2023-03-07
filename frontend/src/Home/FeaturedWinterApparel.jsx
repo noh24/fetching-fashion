@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import Product from "../Shared/Product";
-import useProductReducer from "../Reducers/productReducer";
+import useProductReducer from "../Reducers/useProductReducer";
 import axios from "axios";
 import getError from "../Utility/getError";
 
 const FeaturedWinterApparel = () => {
   const { loading, error, products, dispatch } = useProductReducer();
-  const { fleeceSherpas, jacketVests } = products;
-
+  
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: "FETCH_REQUEST" });
@@ -27,8 +26,8 @@ const FeaturedWinterApparel = () => {
     <div>{error}</div>
   ) : (
     <div>
-      <Product product={fleeceSherpas[0]}></Product>
-      <Product product={jacketVests[1]}></Product>
+      <Product product={products[0]}></Product>
+      <Product product={products[products.length - 1]}></Product>
     </div>
   );
 };
