@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 const SharedLayout = () => {
   return (
     <div>
-      <ToastContainer position='bottom-center' index={1}/>
+      <ToastContainer position='bottom-center' index={1} />
       <Header />
       <Outlet />
       <Footer />

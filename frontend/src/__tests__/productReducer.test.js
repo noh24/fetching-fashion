@@ -1,4 +1,4 @@
-import { reducer as productReducer } from "./../Reducers/productReducer";
+import { reducer as productReducer } from "./../hooks/useProductReducer";
 
 describe("productReducer", () => {
   const initialState = {

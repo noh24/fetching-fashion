@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import useProductReducer from "../hooks/useProductReducer";
-import Product from "../shared/Product";
+import Product from "../components/Product";
 import getError from "../utility/getError";
 
 const WinterApparel = () => {

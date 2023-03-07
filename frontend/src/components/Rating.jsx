@@ -1,7 +1,7 @@
 import React from "react";
 
 const Rating = (props) => {
-  const { rating } = props;
+  const { rating, reviews } = props;
   const star = Math.floor(rating);
 
   let filledStars = [];
@@ -60,7 +60,7 @@ const Rating = (props) => {
           <span>{rating} out 5</span>
         </span>
         <span className='text-xs leading-6 text-slate-400'>
-          based on 42 user ratings
+          based on {reviews} user ratings
         </span>
       </div>
     </>

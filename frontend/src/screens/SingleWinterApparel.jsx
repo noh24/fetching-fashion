@@ -4,9 +4,9 @@ import useProductReducer from "../hooks/useProductReducer";
 import { useParams } from "react-router-dom";
 import getError from "../utility/getError";
 import { Helmet } from "react-helmet-async";
-import SizeTable from "../shared/SizeTable";
-import SizeGuide from "../shared/SizeGuide";
-import Rating from "../shared/Rating";
+import SizeTable from "../components/SizeTable";
+import SizeGuide from "../components/SizeGuide";
+import Rating from "../components/Rating";
 
 const SingleWinterApparel = () => {
   const { loading, error, products: product, dispatch } = useProductReducer();
@@ -46,9 +46,11 @@ const SingleWinterApparel = () => {
 
           <article>
             <div>
-              <Rating rating={product.rating}/>
+              <Rating rating={product.rating} reviews={product.reviews} />
               <h3>{`${product.color} ${product.name}`}</h3>
-              <p><span>${product.price + 10}</span> ${product.price}</p>
+              <p>
+                <span>${product.price + 10}</span> ${product.price}
+              </p>
             </div>
             <div>
               {product.description.map((desc, i) => (
@@ -57,8 +59,8 @@ const SingleWinterApparel = () => {
             </div>
           </article>
 
-          <SizeTable/>
-          <SizeGuide/>
+          <SizeTable />
+          <SizeGuide />
         </section>
       )}
     </main>
