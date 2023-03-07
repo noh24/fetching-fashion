@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import Product from "../Shared/Product";
-import useProductReducer from "../Reducers/useProductReducer";
+import Product from "../../shared/Product";
+import useProductReducer from "../../hooks/useProductReducer";
 import axios from "axios";
-import getError from "../Utility/getError";
+import getError from "../../utility/getError";
 
 const FeaturedWinterApparel = () => {
   const { loading, error, products, dispatch } = useProductReducer();

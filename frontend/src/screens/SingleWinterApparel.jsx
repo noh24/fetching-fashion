@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import useProductReducer from "../Reducers/useProductReducer";
+import useProductReducer from "../hooks/useProductReducer";
 import { useParams } from "react-router-dom";
-import getError from "./../Utility/getError";
+import getError from "../utility/getError";
 import { Helmet } from "react-helmet-async";
-import SizeTable from "../Shared/SizeTable";
-import SizeGuide from "../Shared/SizeGuide";
+import SizeTable from "../shared/SizeTable";
+import SizeGuide from "../shared/SizeGuide";
+import Rating from "../shared/Rating";
 
 const SingleWinterApparel = () => {
   const { loading, error, products: product, dispatch } = useProductReducer();
@@ -45,12 +46,13 @@ const SingleWinterApparel = () => {
 
           <article>
             <div>
+              <Rating rating={product.rating}/>
               <h3>{`${product.color} ${product.name}`}</h3>
               <p><span>${product.price + 10}</span> ${product.price}</p>
             </div>
             <div>
-              {product.description.map(desc => (
-                <p>{desc}</p>
+              {product.description.map((desc, i) => (
+                <p key={i}>{desc}</p>
               ))}
             </div>
           </article>

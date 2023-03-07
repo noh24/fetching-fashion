@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import useProductReducer from "../Reducers/useProductReducer";
-import Product from "../Shared/Product";
-import getError from "../Utility/getError";
+import useProductReducer from "../hooks/useProductReducer";
+import Product from "../shared/Product";
+import getError from "../utility/getError";
 
 const WinterApparel = () => {
   const { loading, error, products, dispatch } = useProductReducer();

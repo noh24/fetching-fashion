@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Home/Home";
-import SharedLayout from "./Shared/SharedLayout";
-import SingleWinterApparel from "./Winter/SingleWinterApparel";
-import WinterApparel from "./Winter/WinterApparel";
+import Home from "./screens/home/Home";
+import SharedLayout from "./shared/SharedLayout";
+import SingleWinterApparel from "./screens/SingleWinterApparel";
+import WinterApparel from "./screens/WinterApparel";
 
 function App() {
   return (

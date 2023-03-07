@@ -7,7 +7,7 @@ const data = {
         color: "Black",
         countInStock: 10,
         price: 25,
-        rating: 4.5,
+        rating: 3.8,
         reviews: 120,
         images: [
           "/images/jacket-sherpa/black-sherpa-big.png",
@@ -32,7 +32,7 @@ const data = {
         color: "Green",
         countInStock: 10,
         price: 25,
-        rating: 4.5,
+        rating: 4.9,
         reviews: 120,
         images: [
           "/images/jacket-sherpa/green-sherpa-big.png",
@@ -57,7 +57,7 @@ const data = {
         color: "Grey",
         countInStock: 10,
         price: 25,
-        rating: 4.5,
+        rating: 4.2,
         reviews: 120,
         images: [
           "/images/jacket-sherpa/grey-sherpa-big.png",
@@ -82,7 +82,7 @@ const data = {
         color: "Maroon",
         countInStock: 10,
         price: 25,
-        rating: 4.5,
+        rating: 3.5,
         reviews: 120,
         images: [
           "/images/jacket-sherpa/maroon-sherpa-big.png",
@@ -135,7 +135,7 @@ const data = {
         color: "Black",
         countInStock: 10,
         price: 25,
-        rating: 4.5,
+        rating: 3.5,
         reviews: 120,
         images: [
           "/images/jacket-vest/black-vest-big.png",
