@@ -6,6 +6,8 @@ const {
   products: { fleeceSherpas, jacketVests },
 } = data;
 
+
+
 const FeatureWinter = () => {
   return (
     <div>
