@@ -3,7 +3,7 @@ import { createContext, useReducer } from "react";
 const Store = createContext();
 
 const initialState = {
-  cart: [],
+  cart: localStorage.cart ? JSON.parse(localStorage.getItem("cart")) : [],
   shippingAddress: {},
   paymentMethod: null,
   userInfo: {},
@@ -19,9 +19,10 @@ const reducer = (state, action) => {
 
       const updatedCart = existItem
         ? state.cart.map((item) =>
-            (item._id === existItem._id) ? newItem : item
+            item._id === existItem._id ? newItem : item
           )
         : [...state.cart, newItem];
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
       return {
         ...state,
         cart: updatedCart,

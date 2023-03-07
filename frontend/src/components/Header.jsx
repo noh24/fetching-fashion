@@ -27,6 +27,9 @@ const Header = () => {
       <div>
         <NavLink>Profile</NavLink>
       </div>
+      <div>
+        <NavLink>Order History</NavLink>
+      </div>
     </nav>
   );
 };
