@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FeaturedWinterApparel from "./FeaturedWinterApparel";
+import FeaturedHomeSection from "./../components/FeaturedHomeSection";
 import { Helmet } from "react-helmet-async";
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
           <h1>Shop Winter Apparel</h1>
         </Link>
         <div>
-          <FeaturedWinterApparel />
+          <FeaturedHomeSection />
         </div>
       </section>
     </main>

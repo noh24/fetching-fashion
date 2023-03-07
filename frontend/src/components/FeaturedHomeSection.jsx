@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import Product from "./../components/Product";
+import Product from "./Product";
 import useProductReducer from "../hooks/useProductReducer";
 import axios from "axios";
 import getError from "../utility/getError";
 
-const FeaturedWinterApparel = () => {
+const FeaturedHomeSection = () => {
   const { loading, error, products, dispatch } = useProductReducer();
   
   useEffect(() => {
@@ -32,4 +32,4 @@ const FeaturedWinterApparel = () => {
   );
 };
 
-export default FeaturedWinterApparel;
+export default FeaturedHomeSection;
