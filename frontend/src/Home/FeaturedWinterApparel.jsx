@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import Product from "../Shared/Product";
-import data from "../data/data";
 import useProductReducer from "../Reducers/productReducer";
 import axios from "axios";
-import { toast } from "react-toastify";
+import getError from "../Utility/getError";
 
 const FeaturedWinterApparel = () => {
   const { loading, error, products, dispatch } = useProductReducer();
@@ -11,14 +10,12 @@ const FeaturedWinterApparel = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      dispatch({ type: "FETCH_REQUEST" });
       try {
-        dispatch({ type: "FETCH_REQUEST" });
         const { data } = await axios.get("/api/products");
         dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (err) {
-        console.log(err.message)
-        dispatch({ type: "FETCH_FAIL", payload: err.message });
-        toast.error(err);
+        dispatch({ type: "FETCH_FAIL", payload: getError(err) });
       }
     };
     fetchData();
