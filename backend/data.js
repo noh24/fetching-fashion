@@ -2,9 +2,9 @@ const data = {
   products: {
     fleeceSherpas: [
       {
-        name: "fleece sherpa jacket",
-        category: "winter apparel",
-        color: "black",
+        name: "Fleece Sherpa Jacket",
+        category: "Winter Apparel",
+        color: "Black",
         countInStock: 10,
         price: 25,
         rating: 4.5,
@@ -27,9 +27,9 @@ const data = {
         ],
       },
       {
-        name: "fleece sherpa jacket",
-        category: "winter apparel",
-        color: "green",
+        name: "Fleece Sherpa Jacket",
+        category: "Winter Apparel",
+        color: "Green",
         countInStock: 10,
         price: 25,
         rating: 4.5,
@@ -52,9 +52,9 @@ const data = {
         ],
       },
       {
-        name: "fleece sherpa jacket",
-        category: "winter apparel",
-        color: "grey",
+        name: "Fleece Sherpa Jacket",
+        category: "Winter Apparel",
+        color: "Grey",
         countInStock: 10,
         price: 25,
         rating: 4.5,
@@ -77,9 +77,9 @@ const data = {
         ],
       },
       {
-        name: "fleece sherpa jacket",
-        category: "winter apparel",
-        color: "maroon",
+        name: "Fleece Sherpa Jacket",
+        category: "Winter Apparel",
+        color: "Maroon",
         countInStock: 10,
         price: 25,
         rating: 4.5,
@@ -102,9 +102,9 @@ const data = {
         ],
       },
       {
-        name: "fleece sherpa jacket",
-        category: "winter apparel",
-        color: "orange",
+        name: "Fleece Sherpa Jacket",
+        category: "Winter Apparel",
+        color: "Orange",
         countInStock: 10,
         price: 25,
         rating: 4.5,
@@ -130,9 +130,9 @@ const data = {
 
     jacketVests: [
       {
-        name: "parka jacket vest",
-        category: "winter apparel",
-        color: "black",
+        name: "Parka Jacket Vest",
+        category: "Winter Apparel",
+        color: "Black",
         countInStock: 10,
         price: 25,
         rating: 4.5,
@@ -143,6 +143,7 @@ const data = {
           "/images/jacket-vest/black-vest.png",
         ],
         description: [
+          "This sleek tech-wear inspired parka will keep your dog dry and warm on the coldest winter days",
           "Keep Dry: Water-resistant exterior shell with reflective strips on the side",
           "Perfect Fit: Double breasted front buttons for perfect fit",
           "Extra Warmth: Cotton insulation and polar fleece interior",
@@ -153,9 +154,9 @@ const data = {
         ],
       },
       {
-        name: "parka jacket vest",
-        category: "winter apparel",
-        color: "olive",
+        name: "Parka Jacket Vest",
+        category: "Winter Apparel",
+        color: "Olive",
         countInStock: 10,
         price: 25,
         rating: 4.5,
@@ -166,6 +167,7 @@ const data = {
           "/images/jacket-vest/olive-vest.png",
         ],
         description: [
+          "This sleek tech-wear inspired parka will keep your dog dry and warm on the coldest winter days",
           "Keep Dry: Water-resistant exterior shell with reflective strips on the side",
           "Perfect Fit: Double breasted front buttons for perfect fit",
           "Extra Warmth: Cotton insulation and polar fleece interior",
@@ -176,9 +178,9 @@ const data = {
         ],
       },
       {
-        name: "parka jacket vest",
-        category: "winter apparel",
-        color: "red",
+        name: "Parka Jacket Vest",
+        category: "Winter Apparel",
+        color: "Red",
         countInStock: 10,
         price: 25,
         rating: 4.5,
@@ -189,6 +191,7 @@ const data = {
           "/images/jacket-vest/red-vest.png",
         ],
         description: [
+          "This sleek tech-wear inspired parka will keep your dog dry and warm on the coldest winter days",
           "Keep Dry: Water-resistant exterior shell with reflective strips on the side",
           "Perfect Fit: Double breasted front buttons for perfect fit",
           "Extra Warmth: Cotton insulation and polar fleece interior",

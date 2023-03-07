@@ -12,5 +12,13 @@ productRouter.get("/", async (req, res) => {
   }
 });
 
+productRouter.get("/:id", async (req, res) => {
+  const product = await Product.findById(req.params.id);
+  if (product) {
+    res.send(product);
+  } else {
+    res.status(404).send({ message: "This product could not be found" });
+  }
+});
 
 export default productRouter;

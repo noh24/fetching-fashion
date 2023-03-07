@@ -11,7 +11,7 @@ seedRouter.get("/", async (req, res) => {
     const jacketVests = await Product.insertMany(data.products.jacketVests);
     res.send({fleeceSherpas, jacketVests});
   } catch (err) {
-    console.log(err.message);
+    res.send(err.message);
   }
 });
 

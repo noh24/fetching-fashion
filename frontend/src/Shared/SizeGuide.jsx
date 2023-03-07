@@ -1,32 +1,19 @@
 import React from 'react'
-import sizingData from '../data/sizingData';
 
-const SizeGuide
- = () => {
+const SizeGuide = () => {
   return (
     <section>
-        <h1>Size by Measurements</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>Size</th>
-              <th>Chest</th>
-              <th>Neck</th>
-              <th>Back</th>
-            </tr>
-          </thead>
-          <tbody>
-            {sizingData.map(size => (
-              <tr key={size.size}>
-                <td>{size.size}</td>
-                <td>{size.chest}</td>
-                <td>{size.neck}</td>
-                <td>{size.back}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+      <div>
+        <p>Back Length</p>
+        <p>Measure from the base of your dogs neck (right below where their collar would sit) all the way to just above the top of their tail.</p>
+      <img src="/images/back-length.png" alt="back-length-guide" />
+      </div>
+      <div>
+        <p>CHEST GIRTH</p>
+        <p>Measure around the largest part of your dogs chest, just behind their front legs.</p>
+      <img src="/images/chest-girth.png" alt="chest-girth-guide" />
+      </div>
+    </section>
   )
 }
 

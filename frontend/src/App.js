@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home/Home";
 import SharedLayout from "./Shared/SharedLayout";
+import SingleWinterApparel from "./Winter/SingleWinterApparel";
 import WinterApparel from "./Winter/WinterApparel";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
             path='/products/winter-apparel'
             element={<WinterApparel />}
           ></Route>
+          <Route path='/product/:id' element={<SingleWinterApparel />} />
         </Route>
       </Routes>
     </BrowserRouter>
