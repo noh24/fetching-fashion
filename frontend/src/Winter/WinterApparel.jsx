@@ -1,7 +1,6 @@
 import React from "react";
 import data from "../data/data";
 import Product from "../Shared/Product";
-import SizeGuide from "../Shared/SizeGuide";
 
 const WinterApparel = () => {
   return (
