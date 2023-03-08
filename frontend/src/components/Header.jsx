@@ -7,7 +7,10 @@ const Header = () => {
   const { cart, userInfo } = state;
 
   const signOutHandler = () => {
-
+    dispatch({ type: "USER_SIGNOUT"})
+    localStorage.removeItem('cart')
+    localStorage.removeItem('user')
+    localStorage.removeItem('shippingAddress')
   }
   
   return (
