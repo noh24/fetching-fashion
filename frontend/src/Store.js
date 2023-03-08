@@ -9,6 +9,7 @@ const initialState = {
     : {},
   paymentMethod: null,
   userInfo: localStorage.user ? JSON.parse(localStorage.getItem("user")) : null,
+  price: {},
 };
 
 const reducer = (state, action) => {
@@ -48,6 +49,14 @@ const reducer = (state, action) => {
 
     case "SAVE_SHIPPING_ADDRESS":
       return { ...state, shippingAddress: action.payload };
+
+    case "CALCULATE_PRICE":
+      const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100;
+      const items = round2(state.cart.reduce((acc, curr) => (acc + curr.price * curr.quantity), 0));
+      const shipping = items >= 100 ? round2(0) : round2(10);
+      const tax = round2(0.15 * items);
+      const total = items + shipping + tax;
+      return {...state, price: {items, shipping, tax, total}};
 
     default:
       throw new Error("No matching action type");

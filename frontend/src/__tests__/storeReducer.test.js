@@ -6,11 +6,12 @@ describe("reducer", () => {
     shippingAddress: {},
     paymentMethod: null,
     userInfo: null,
+    price: {}
   };
 
   it("should throw error if no action.type matching", () => {
     expect(() => reducer(initialState, { type: null })).toThrowError(
-      "No matching action.type"
+      "No matching action type"
     );
   });
 
@@ -86,7 +87,7 @@ describe("reducer", () => {
       );
       expect(result).toEqual({ ...initialState });
     });
-    
+
     it("should return state with empty shipping address property", () => {
       const result = reducer(
         { ...initialState, shippingAddress: { name: "address" }},
@@ -110,6 +111,24 @@ describe("reducer", () => {
         { type: "SAVE_SHIPPING_ADDRESS", payload: userShippingAddress }
       );
       expect(result).toEqual({ ...initialState, shippingAddress: userShippingAddress });
+    });
+  });
+
+  describe("CALCULATE_PRICE", () => {
+    it("should return state, price property with items, shipping, tax, total pricing", () => {
+      const product = { price: 100, quantity: 1};
+      const product2 = { price: 25, quantity: 1};
+
+      const result = reducer(
+        {...initialState, cart: [product, product2]},
+        { type: "CALCULATE_PRICE" }
+      );
+      expect(result).toEqual({ ...initialState, cart:[product, product2], price: {
+        items: 125,
+        shipping: 0,
+        tax: 18.75,
+        total: 143.75,
+      } })
     });
   });
 });
