@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const { state, dispatch } = useContext(Store);
+  const { state, dispatch : storeDispatch} = useContext(Store);
   const { cart } = state;
 
   const updatedCartItem = async (item, quantity) => {
@@ -17,14 +17,14 @@ const Cart = () => {
       if (data.countInStock < quantity) {
         throw new Error(`${item.name || item.name} is out of stock.`);
       }
-      dispatch({ type: "ADD_TO_CART", payload: { ...item, quantity } });
+      storeDispatch({ type: "ADD_TO_CART", payload: { ...item, quantity } });
     } catch (err) {
       toast.error(getError(err));
     }
   };
 
   const removeCartItems = (item) => {
-    dispatch({ type: "REMOVE_FROM_CART", payload: item });
+    storeDispatch({ type: "REMOVE_FROM_CART", payload: item });
   };
 
   const proceedToCheckout = () => {

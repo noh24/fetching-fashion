@@ -7,7 +7,7 @@ import axios from "axios";
 
 const Product = (props) => {
   const { product } = props;
-  const { state, dispatch } = useContext(Store);
+  const { state, dispatch : storeDispatch } = useContext(Store);
 
   const addCartHandler = async (product) => {
     try {
@@ -17,7 +17,7 @@ const Product = (props) => {
       if (data.countInStock < quantity) {
         throw new Error(`${itemExist.name || product.name} is out of stock.`);
       }
-      dispatch({ type: "ADD_TO_CART", payload: {...product, quantity} })
+      storeDispatch({ type: "ADD_TO_CART", payload: {...product, quantity} })
     } catch (err) {
       toast.error(getError(err));
     }

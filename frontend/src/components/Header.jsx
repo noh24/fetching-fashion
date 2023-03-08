@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 import { Store } from "../Store";
 
 const Header = () => {
-  const { state, dispatch } = useContext(Store);
+  const { state, dispatch : storeDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 
   const signOutHandler = () => {
-    dispatch({ type: "USER_SIGNOUT"})
+    storeDispatch({ type: "USER_SIGNOUT"})
     localStorage.removeItem('cart')
     localStorage.removeItem('user')
     localStorage.removeItem('shippingAddress')

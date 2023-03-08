@@ -12,7 +12,7 @@ const SignIn = () => {
   const redirect = redirectInUrl ? redirectInUrl : "/";
 
   const navigate = useNavigate();
-  const { state, dispatch } = useContext(Store);
+  const { state, dispatch : storeDispatch } = useContext(Store);
   const { userInfo } = state;
 
   const [email, setEmail] = useState("");
@@ -31,7 +31,7 @@ const SignIn = () => {
         email,
         password,
       });
-      dispatch({ type: "USER_SIGNIN", payload: data });
+      storeDispatch({ type: "USER_SIGNIN", payload: data });
       localStorage.setItem("user", JSON.stringify(data));
       navigate(redirect);
     } catch (err) {
