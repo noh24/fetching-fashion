@@ -3,7 +3,7 @@ import { reducer } from "../Store";
 describe("reducer", () => {
   const initialState = {
     cart: [],
-    shippingAddress: null,
+    shippingAddress: {},
     paymentMethod: null,
     userInfo: null,
   };
@@ -81,10 +81,27 @@ describe("reducer", () => {
 
     it("should return state with empty cart property", () => {
       const result = reducer(
-        { ...initialState, cart: [{name: "product"}] },
+        { ...initialState, cart: [{ name: "product" }] },
         { type: "USER_SIGNOUT" }
       );
       expect(result).toEqual({ ...initialState });
+    });
+  });
+
+  describe("SAVE_SHIPPING_ADDRESS", () => {
+    it("should return state with shippingAddress with fullName, address, city, postalCode, country", () => {
+      const userShippingAddress = {
+        name: "brian",
+        address: "222 Noh Street, Apt 1D",
+        city: "Kentwood",
+        postalCode: "12345",
+        country: "USA",
+      };
+      const result = reducer(
+        initialState,
+        { type: "SAVE_SHIPPING_ADDRESS", payload: userShippingAddress }
+      );
+      expect(result).toEqual({ ...initialState, shippingAddress: userShippingAddress });
     });
   });
 });
