@@ -2,8 +2,14 @@
     <img src='./frontend/public/images/fetching-fashion-logo.png' alt='logo' width="250px">
     <h1 align=center>Fetching Fashion Co</h1>
     <h3 align=center>Get Your Paws on Fetching Fashion - The Bark of the Town!</h3>
-    <p align=center>Online Dog Clothing Site</p>
+    <p align=center>Your Furry Partner Deserves The Best</p>
 </p>
+
+## TO DO
+- Message Component (for errors and misc. messages)
+- Loading Component 
+
+
 
 ## Planning and Research Log
 

@@ -17,8 +17,7 @@ const Product = (props) => {
       if (data.countInStock < quantity) {
         throw new Error(`${itemExist.name || product.name} is out of stock.`);
       }
-      const updatedProduct = {...product, quantity};
-      dispatch({ type: "ADD_TO_CART", payload: updatedProduct })
+      dispatch({ type: "ADD_TO_CART", payload: {...product, quantity} })
     } catch (err) {
       toast.error(getError(err));
     }

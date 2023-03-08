@@ -27,6 +27,15 @@ const reducer = (state, action) => {
         ...state,
         cart: updatedCart,
       };
+    case "REMOVE_FROM_CART":
+      const newCart = state.cart.filter(
+        (item) => item._id !== action.payload._id
+      );
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      return {
+        ...state,
+        cart: newCart,
+      };
     default:
       throw new Error("No matching action.type");
   }
