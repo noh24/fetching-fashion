@@ -52,7 +52,7 @@ const Cart = () => {
               </div>
               <div>
                 <button
-                  disabled={item.quantity <= 0}
+                  disabled={item.quantity <= 1}
                   onClick={() => updatedCartItem(item, item.quantity - 1)}
                 >
                   -
