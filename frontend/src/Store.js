@@ -6,7 +6,7 @@ const initialState = {
   cart: localStorage.cart ? JSON.parse(localStorage.getItem("cart")) : [],
   shippingAddress: {},
   paymentMethod: null,
-  userInfo: {},
+  userInfo: localStorage.user ? JSON.parse(localStorage.getItem("user")) : {},
 };
 
 const reducer = (state, action) => {
@@ -36,6 +36,9 @@ const reducer = (state, action) => {
         ...state,
         cart: newCart,
       };
+
+    case "USER_SIGNIN":
+      return { ...state, userInfo: action.payload };
     default:
       throw new Error("No matching action.type");
   }

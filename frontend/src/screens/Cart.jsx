@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Store } from "../Store";
 import getError from "../utility/getError";
+import { Helmet } from "react-helmet-async";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -27,11 +28,14 @@ const Cart = () => {
   };
 
   const proceedToCheckout = () => {
-    navigate('/signin?redirect=/shipping');
-  }
+    navigate("/signin?redirect=/shipping");
+  };
 
   return (
     <main>
+      <Helmet>
+        <title>Cart</title>
+      </Helmet>
       {/* Cart items */}
       {cart.length <= 0 ? (
         <div>

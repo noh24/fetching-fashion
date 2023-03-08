@@ -1,7 +1,12 @@
 import { reducer } from "../Store";
 
 describe("reducer", () => {
-  let initialState;
+  const initialState = {
+    cart: [],
+    shippingAddress: {},
+    paymentMethod: null,
+    userInfo: {},
+  };
 
   it("should throw error if no action.type matching", () => {
     expect(() => reducer(initialState, { type: null })).toThrowError(
@@ -12,15 +17,13 @@ describe("reducer", () => {
   describe("ADD_TO_CART", () => {
     it("action: ADD_TO_CART should return products in cart", () => {
       const existProduct = { name: "existProduct", quantity: 1, _id: 2 };
-      initialState = {
-        cart: [existProduct],
-        shippingAddress: {},
-        paymentMethod: null,
-        userInfo: {},
-      };
+
       const product = { name: "product", _id: 1 };
       expect(
-        reducer(initialState, { type: "ADD_TO_CART", payload: product })
+        reducer(
+          { ...initialState, cart: [existProduct] },
+          { type: "ADD_TO_CART", payload: product }
+        )
       ).toEqual({
         ...initialState,
         cart: [existProduct, product],
@@ -31,20 +34,38 @@ describe("reducer", () => {
   describe("REMOVE_FROM_CART", () => {
     it("should remove item from cart", () => {
       const existProduct = { name: "existProduct", quantity: 1, _id: 2 };
-      initialState = {
-        cart: [existProduct],
-        shippingAddress: {},
-        paymentMethod: null,
-        userInfo: {},
-      };
       expect(
-        reducer(initialState, {
-          type: "REMOVE_FROM_CART",
-          payload: existProduct,
-        })
+        reducer(
+          { ...initialState, cart: [existProduct] },
+          {
+            type: "REMOVE_FROM_CART",
+            payload: existProduct,
+          }
+        )
       ).toEqual({
         ...initialState,
         cart: [],
+      });
+    });
+  });
+
+  describe("USER_SIGNIN", () => {
+    it("returns user info", () => {
+      const user = {
+        _id: "1",
+        name: "test",
+        email: "test@test.com",
+        isAdmin: false,
+      };
+      const state = reducer(
+        { ...initialState },
+        { type: "USER_SIGNIN", payload: user }
+      );
+      expect(state.userInfo).toEqual({
+        _id: "1",
+        name: "test",
+        email: "test@test.com",
+        isAdmin: false,
       });
     });
   });

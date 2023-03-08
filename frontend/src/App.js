@@ -4,6 +4,7 @@ import SharedLayout from "./components/SharedLayout";
 import SingleWinterApparel from "./screens/SingleWinterApparel";
 import WinterApparel from "./screens/WinterApparel";
 import Cart from "./screens/Cart";
+import SignIn from "./screens/SignIn";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           ></Route>
           <Route path='/product/:id' element={<SingleWinterApparel />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/signin' element={<SignIn />} />
         </Route>
       </Routes>
     </BrowserRouter>
