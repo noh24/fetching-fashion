@@ -8,7 +8,7 @@ const Shipping = () => {
   const { state, dispatch: storeDispatch } = useContext(Store);
   const { userInfo, cart, shippingAddress } = state;
 
-  const [name, setName] = useState(shippingAddress.fullName || "");
+  const [fullName, setFullName] = useState(shippingAddress.fullName || "");
   const [address, setAddress] = useState(shippingAddress.address || "");
   const [city, setCity] = useState(shippingAddress.city || "");
   const [postalCode, setPostalCode] = useState(
@@ -28,7 +28,7 @@ const Shipping = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     const userShippingAddress = {
-      name,
+      fullName,
       address,
       city,
       postalCode,
@@ -38,9 +38,10 @@ const Shipping = () => {
       type: "SAVE_SHIPPING_ADDRESS",
       payload: userShippingAddress,
     });
-    localStorage.setItem("shippingAddress", userShippingAddress);
+    localStorage.setItem("shippingAddress", JSON.stringify(userShippingAddress));
     navigate("/payment");
   };
+
   return (
     <main>
       <Helmet>
@@ -51,9 +52,9 @@ const Shipping = () => {
         <input
           type='text'
           placeholder='Full Name'
-          value={name}
+          value={fullName}
           required
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setFullName(e.target.value)}
         ></input>
         <input
           type='text'
