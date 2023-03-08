@@ -38,7 +38,10 @@ const Shipping = () => {
       type: "SAVE_SHIPPING_ADDRESS",
       payload: userShippingAddress,
     });
-    localStorage.setItem("shippingAddress", JSON.stringify(userShippingAddress));
+    localStorage.setItem(
+      "shippingAddress",
+      JSON.stringify(userShippingAddress)
+    );
     navigate("/payment");
   };
 
