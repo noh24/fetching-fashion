@@ -39,7 +39,7 @@ const Shipping = () => {
       payload: userShippingAddress,
     });
     localStorage.setItem("shippingAddress", userShippingAddress);
-    navigate('/payment');
+    navigate("/payment");
   };
   return (
     <main>
@@ -52,30 +52,35 @@ const Shipping = () => {
           type='text'
           placeholder='Full Name'
           value={name}
+          required
           onChange={(e) => setName(e.target.value)}
         ></input>
         <input
           type='text'
           placeholder='Address'
           value={address}
+          required
           onChange={(e) => setAddress(e.target.value)}
         ></input>
         <input
           type='text'
           placeholder='City'
           value={city}
+          required
           onChange={(e) => setCity(e.target.value)}
         ></input>
         <input
           type='text'
           placeholder='Postal Code / Zip Code'
           value={postalCode}
+          required
           onChange={(e) => setPostalCode(e.target.value)}
         ></input>
         <input
           type='text'
           placeholder='Country'
           value={country}
+          required
           onChange={(e) => setCountry(e.target.value)}
         ></input>
         <div>
