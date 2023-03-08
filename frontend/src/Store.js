@@ -4,9 +4,9 @@ const Store = createContext();
 
 const initialState = {
   cart: localStorage.cart ? JSON.parse(localStorage.getItem("cart")) : [],
-  shippingAddress: {},
+  shippingAddress: null,
   paymentMethod: null,
-  userInfo: localStorage.user ? JSON.parse(localStorage.getItem("user")) : {},
+  userInfo: localStorage.user ? JSON.parse(localStorage.getItem("user")) : null,
 };
 
 const reducer = (state, action) => {
@@ -27,6 +27,7 @@ const reducer = (state, action) => {
         ...state,
         cart: updatedCart,
       };
+
     case "REMOVE_FROM_CART":
       const newCart = state.cart.filter(
         (item) => item._id !== action.payload._id
@@ -39,6 +40,10 @@ const reducer = (state, action) => {
 
     case "USER_SIGNIN":
       return { ...state, userInfo: action.payload };
+
+    case "USER_SIGNOUT":
+      return { ...state, userInfo: null, cart: [] };
+
     default:
       throw new Error("No matching action.type");
   }

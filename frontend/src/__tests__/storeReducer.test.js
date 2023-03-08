@@ -3,9 +3,9 @@ import { reducer } from "../Store";
 describe("reducer", () => {
   const initialState = {
     cart: [],
-    shippingAddress: {},
+    shippingAddress: null,
     paymentMethod: null,
-    userInfo: {},
+    userInfo: null,
   };
 
   it("should throw error if no action.type matching", () => {
@@ -67,6 +67,24 @@ describe("reducer", () => {
         email: "test@test.com",
         isAdmin: false,
       });
+    });
+  });
+
+  describe("USER_SIGNOUT", () => {
+    it("should return state with empty user info property", () => {
+      const result = reducer(
+        { ...initialState, userInfo: { name: "user" } },
+        { type: "USER_SIGNOUT" }
+      );
+      expect(result).toEqual({ ...initialState });
+    });
+
+    it("should return state with empty cart property", () => {
+      const result = reducer(
+        { ...initialState, cart: [{name: "product"}] },
+        { type: "USER_SIGNOUT" }
+      );
+      expect(result).toEqual({ ...initialState });
     });
   });
 });
