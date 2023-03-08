@@ -11,6 +11,7 @@ const Shipping = () => {
   const [fullName, setFullName] = useState(shippingAddress.fullName || "");
   const [address, setAddress] = useState(shippingAddress.address || "");
   const [city, setCity] = useState(shippingAddress.city || "");
+  const [addressState, setState] = useState(shippingAddress.state || "")
   const [postalCode, setPostalCode] = useState(
     shippingAddress.postalCode || ""
   );
@@ -31,6 +32,7 @@ const Shipping = () => {
       fullName,
       address,
       city,
+      state: addressState,
       postalCode,
       country,
     };
@@ -72,6 +74,13 @@ const Shipping = () => {
           value={city}
           required
           onChange={(e) => setCity(e.target.value)}
+        ></input>
+        <input
+          type='text'
+          placeholder='State / Province'
+          value={addressState}
+          required
+          onChange={(e) => setState(e.target.value)}
         ></input>
         <input
           type='text'
