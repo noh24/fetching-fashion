@@ -5,11 +5,28 @@
     <p align=center>Your Furry Partner Deserves The Best</p>
 </p>
 
+## Technologies Used
+- JavaScript 
+- React (Create React App)
+- Node.js
+- express
+- MongoDB
+- Paypal API
+- Heroku
+
+## Instructions 
+
+<!-- - Visit [deployed site]() -->
+- Clone this project using your terminal
+#### Root Folder
+- Run `cd backend && npm i && npm run start` to start the backend
+- Run  `cd ../frontend && npm i & npm run start` to start the frontend
+
+
 ## TO DO
 - Message Component (for errors and misc. messages)
 - Loading Component 
 - signout
-
 
 ## Planning and Research Log
 
