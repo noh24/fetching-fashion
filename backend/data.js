@@ -51,8 +51,8 @@ const data = {
         rating: 4.9,
         reviews: 120,
         images: [
-          "/images/jacket-sherpa/green-sherpa-big.png",
           "/images/jacket-sherpa/green-sherpa-small.png",
+          "/images/jacket-sherpa/green-sherpa-big.png",
           "/images/jacket-sherpa/green-sherpa.png",
         ],
         description: [
