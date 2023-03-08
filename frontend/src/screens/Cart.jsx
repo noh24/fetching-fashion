@@ -82,7 +82,7 @@ const Cart = () => {
             {cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0)}{" "}
           </h1>
           <div>
-            <button onClick={proceedToCheckout}>Proceed To Checkout</button>
+            <button disabled={cart.length <= 0} onClick={proceedToCheckout}>Proceed To Checkout</button>
           </div>
         </article>
       </section>
