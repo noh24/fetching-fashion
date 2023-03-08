@@ -6,6 +6,7 @@ import WinterApparel from "./screens/WinterApparel";
 import Cart from "./screens/Cart";
 import SignIn from "./screens/SignIn";
 import Shipping from "./screens/Shipping";
+import Payment from "./screens/Payment";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='/cart' element={<Cart />} />
           <Route path='/signin' element={<SignIn />} />
           <Route path='/shipping' element={<Shipping />} />
+          <Route path='/payment' element={<Payment />} />
         </Route>
       </Routes>
     </BrowserRouter>

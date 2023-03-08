@@ -3,16 +3,16 @@ import { NavLink } from "react-router-dom";
 import { Store } from "../Store";
 
 const Header = () => {
-  const { state, dispatch : storeDispatch } = useContext(Store);
+  const { state, dispatch: storeDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 
   const signOutHandler = () => {
-    storeDispatch({ type: "USER_SIGNOUT"})
-    localStorage.removeItem('cart')
-    localStorage.removeItem('user')
-    localStorage.removeItem('shippingAddress')
-  }
-  
+    storeDispatch({ type: "USER_SIGNOUT" });
+    localStorage.removeItem("cart");
+    localStorage.removeItem("user");
+    localStorage.removeItem("shippingAddress");
+  };
+
   return (
     <nav>
       <NavLink to='/'>
