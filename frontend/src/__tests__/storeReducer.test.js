@@ -86,6 +86,14 @@ describe("reducer", () => {
       );
       expect(result).toEqual({ ...initialState });
     });
+    
+    it("should return state with empty shipping address property", () => {
+      const result = reducer(
+        { ...initialState, shippingAddress: { name: "address" }},
+        { type: "USER_SIGNOUT" }
+      );
+      expect(result).toEqual({ ...initialState });
+    });
   });
 
   describe("SAVE_SHIPPING_ADDRESS", () => {

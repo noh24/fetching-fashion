@@ -4,7 +4,9 @@ const Store = createContext();
 
 const initialState = {
   cart: localStorage.cart ? JSON.parse(localStorage.getItem("cart")) : [],
-  shippingAddress: {},
+  shippingAddress: localStorage.shippingAddress
+    ? JSON.parse(localStorage.getItem("shippingAddress"))
+    : {},
   paymentMethod: null,
   userInfo: localStorage.user ? JSON.parse(localStorage.getItem("user")) : null,
 };
@@ -42,13 +44,13 @@ const reducer = (state, action) => {
       return { ...state, userInfo: action.payload };
 
     case "USER_SIGNOUT":
-      return { ...state, userInfo: null, cart: [] };
+      return { ...state, userInfo: null, cart: [], shippingAddress: {} };
 
     case "SAVE_SHIPPING_ADDRESS":
-      return {...state, shippingAddress: action.payload};
+      return { ...state, shippingAddress: action.payload };
 
     default:
-      throw new Error("No matching action.type");
+      throw new Error("No matching action type");
   }
 };
 
