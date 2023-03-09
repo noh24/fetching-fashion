@@ -64,7 +64,7 @@ const Payment = () => {
         );
         toast.success('Order is complete');
       } catch (err) {
-        toast.error("getError(err)");
+        toast.error(getError(err));
       }
     });
   };
