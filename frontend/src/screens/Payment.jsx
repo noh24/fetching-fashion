@@ -66,7 +66,7 @@ const Payment = () => {
           }
         );
         toast.success("Order is complete");
-        storeDispatch({ type: "CART_CLEAR" });
+        storeDispatch({ type: "CLEAR_CART" });
         localStorage.removeItem("cart");
         navigate(`/order/${data.order._id}`);
       } catch (err) {
