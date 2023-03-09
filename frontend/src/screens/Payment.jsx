@@ -1,17 +1,77 @@
 import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Store } from "../Store";
+import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import { toast } from "react-toastify";
+import axios from "axios";
+import getError from "../utility/getError";
 
 const Payment = () => {
   const navigate = useNavigate();
   const { state, dispatch: storeDispatch } = useContext(Store);
   const { shippingAddress, userInfo, cart, price } = state;
+  const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
 
   useEffect(() => {
     if (!userInfo) {
-      navigate('/signin')
+      navigate("/signin");
     }
-  }, [userInfo, navigate])
+    const loadPaypalScript = async () => {
+      const { data: clientId } = await axios.get("/api/keys/paypal", {
+        headers: { authorization: `Bearer ${userInfo.token}` },
+      });
+      paypalDispatch({
+        type: "resetOptions",
+        value: {
+          "client-id": clientId,
+          currency: "USD",
+        },
+      });
+      paypalDispatch({ type: "setLoadingStatus", value: "pending" });
+    };
+    loadPaypalScript();
+  }, [userInfo, navigate, paypalDispatch]);
+
+  const createOrder = (data, actions) => {
+    return actions.order
+      .create({
+        purchase_units: [
+          {
+            amount: { value: price.total },
+          },
+        ],
+      })
+      .then((orderId) => {
+        return orderId;
+      });
+  };
+  const onApprove = (data, actions) => {
+    return actions.order.capture().then(async (details) => {
+      try {
+        const { data } = await axios.post(
+          `/api/orders/`,
+          {
+            details,
+            orderItems: cart,
+            shippingAddress,
+            price,
+          },
+          {
+            headers: {
+              authorization: `Bearer ${userInfo.token}`,
+            },
+          }
+        );
+        toast.success('Order is complete');
+      } catch (err) {
+        toast.error("getError(err)");
+      }
+    });
+  };
+  const onError = (err) => {
+    toast.error(getError(err));
+  };
+
   return (
     <main>
       <section>
@@ -70,6 +130,17 @@ const Payment = () => {
             <p>Total</p>
             <p>${price.total.toFixed(2)}</p>
           </div>
+          {isPending ? (
+            <div>Loading...</div>
+          ) : (
+            <div>
+              <PayPalButtons
+                createOrder={createOrder}
+                onApprove={onApprove}
+                onError={onError}
+              ></PayPalButtons>
+            </div>
+          )}
           <button>Paypal</button>
         </article>
       </section>
