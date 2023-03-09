@@ -26,7 +26,11 @@
 ## TO DO
 - Message Component (for errors and misc. messages)
 - Loading Component 
-- signout
+- Sign Up feature + screen
+
+
+## Known bugs
+- Unable to get paypal api payments to work atm (could be a paypal server thing)
 
 ## Planning and Research Log
 
