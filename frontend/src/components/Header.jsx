@@ -11,6 +11,7 @@ const Header = () => {
     localStorage.removeItem("cart");
     localStorage.removeItem("user");
     localStorage.removeItem("shippingAddress");
+    localStorage.removeItem('price');
   };
 
   return (
