@@ -63,6 +63,9 @@ const Payment = () => {
           }
         );
         toast.success('Order is complete');
+          storeDispatch({ type: "CART_CLEAR" })
+          localStorage.removeItem('cart');
+        navigate(`/order/${data.order._id}`);
       } catch (err) {
         toast.error(getError(err));
       }
@@ -141,7 +144,6 @@ const Payment = () => {
               ></PayPalButtons>
             </div>
           )}
-          <button>Paypal</button>
         </article>
       </section>
     </main>
