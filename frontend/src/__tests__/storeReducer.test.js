@@ -4,9 +4,8 @@ describe("reducer", () => {
   const initialState = {
     cart: [],
     shippingAddress: {},
-    paymentMethod: null,
     userInfo: null,
-    price: {}
+    price: {},
   };
 
   it("should throw error if no action.type matching", () => {
@@ -90,7 +89,7 @@ describe("reducer", () => {
 
     it("should return state with empty shipping address property", () => {
       const result = reducer(
-        { ...initialState, shippingAddress: { name: "address" }},
+        { ...initialState, shippingAddress: { name: "address" } },
         { type: "USER_SIGNOUT" }
       );
       expect(result).toEqual({ ...initialState });
@@ -106,29 +105,54 @@ describe("reducer", () => {
         postalCode: "12345",
         country: "USA",
       };
-      const result = reducer(
-        initialState,
-        { type: "SAVE_SHIPPING_ADDRESS", payload: userShippingAddress }
-      );
-      expect(result).toEqual({ ...initialState, shippingAddress: userShippingAddress });
+      const result = reducer(initialState, {
+        type: "SAVE_SHIPPING_ADDRESS",
+        payload: userShippingAddress,
+      });
+      expect(result).toEqual({
+        ...initialState,
+        shippingAddress: userShippingAddress,
+      });
     });
   });
 
   describe("CALCULATE_PRICE", () => {
     it("should return state, price property with items, shipping, tax, total pricing", () => {
-      const product = { price: 100, quantity: 1};
-      const product2 = { price: 25, quantity: 1};
+      const product = { price: 100, quantity: 1 };
+      const product2 = { price: 25, quantity: 1 };
 
       const result = reducer(
-        {...initialState, cart: [product, product2]},
+        { ...initialState, cart: [product, product2] },
         { type: "CALCULATE_PRICE" }
       );
-      expect(result).toEqual({ ...initialState, cart:[product, product2], price: {
-        items: 125,
-        shipping: 0,
-        tax: 18.75,
-        total: 143.75,
-      } })
+      expect(result).toEqual({
+        ...initialState,
+        cart: [product, product2],
+        price: {
+          items: 125,
+          shipping: 0,
+          tax: 18.75,
+          total: 143.75,
+        },
+      });
+    });
+  });
+
+  describe("CLEAR_CART", () => {
+    it("should return state with cart as empty array", () => {
+      const result = reducer(
+        {
+          ...initialState,
+          shippingAddress: { name: "address" },
+          cart: [{ name: "product" }],
+        },
+        { type: "CLEAR_CART" }
+      );
+      expect(result).toEqual({
+        ...initialState,
+        shippingAddress: { name: "address" },
+        cart: [],
+      });
     });
   });
 });
