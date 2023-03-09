@@ -37,8 +37,8 @@ const SignUp = () => {
       });
       storeDispatch({ type: "USER_SIGNIN", payload: data });
       localStorage.setItem("userInfo", JSON.stringify(data));
+      toast.success("Successfully signed up");
       navigate(redirect);
-      navigate("/");
     } catch (err) {
       toast.error(getError(err));
     }
@@ -53,7 +53,7 @@ const SignUp = () => {
       <form onSubmit={submitHandler}>
         <input
           type='text'
-          placeholder='Full Name'
+          placeholder='Name'
           onChange={(e) => setName(e.target.value)}
         />
         <input
@@ -74,7 +74,8 @@ const SignUp = () => {
         <button type='submit'>Sign Up</button>
       </form>
       <p>
-        Already a Customer? <Link to={`/signin?redirect=${redirect}`}>Sign In</Link>
+        Already a Customer?{" "}
+        <Link to={`/signin?redirect=${redirect}`}>Sign In</Link>
       </p>
     </main>
   );
