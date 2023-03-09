@@ -67,7 +67,7 @@ const Order = () => {
         <article>
           <h1>Order Items</h1>
           <div>
-            {state.cart.map((item) => (
+            {order.orderItems.map((item) => (
               <div key={item._id}>
                 <img src={item.images[0]} alt={`${item.color} ${item.name}`} />
                 <Link to={`/product/${item._id}`}>
