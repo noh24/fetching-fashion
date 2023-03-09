@@ -43,7 +43,7 @@ const Header = () => {
               <NavLink>Profile</NavLink>
             </p>
             <p>
-              <NavLink>Order History</NavLink>
+              <NavLink to='/orderhistory'>Order History</NavLink>
             </p>
             <p>
               <button onClick={signOutHandler}>Sign out</button>
