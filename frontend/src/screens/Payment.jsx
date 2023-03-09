@@ -133,7 +133,7 @@ const Payment = () => {
             <p>${price.tax.toFixed(2)}</p>
           </div>
           <div>
-            <p>Total</p>
+            <p><strong>Order Total</strong></p>
             <p>${price.total.toFixed(2)}</p>
           </div>
           {isPending ? (
