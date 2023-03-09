@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Store } from "../Store";
@@ -11,7 +12,7 @@ const Order = () => {
   const [order, setOrder] = useState({});
   const params = useParams();
   const { state, dispatch } = useContext(Store);
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -36,6 +37,10 @@ const Order = () => {
     <div>{error}</div>
   ) : (
     <main>
+      <Helmet>
+        <title>Order No. {params.id}</title>
+      </Helmet>
+      <h1>Order No. {params.id}</h1>
       <section>
         <article>
           <h1>Shipping Address</h1>
@@ -49,7 +54,8 @@ const Order = () => {
           </div>
           {order.isDelivered ? (
             <div>
-              <strong>Delivered at:</strong> {(new Date(order.deliveredAt)).toLocaleString()}
+              <strong>Delivered at:</strong>{" "}
+              {new Date(order.deliveredAt).toLocaleString()}
             </div>
           ) : (
             <div>
@@ -59,7 +65,7 @@ const Order = () => {
         </article>
 
         <article>
-          <h1>Cart</h1>
+          <h1>Order Items</h1>
           <div>
             {state.cart.map((item) => (
               <div key={item._id}>
@@ -91,12 +97,15 @@ const Order = () => {
             <p>${state.price.tax.toFixed(2)}</p>
           </div>
           <div>
-            <p><strong>Order Total</strong></p>
+            <p>
+              <strong>Order Total</strong>
+            </p>
             <p>${state.price.total.toFixed(2)}</p>
           </div>
           {order.isPaid ? (
             <div>
-              <strong>Paid at:</strong> {(new Date(order.paidAt)).toLocaleString()}
+              <strong>Paid at:</strong>{" "}
+              {new Date(order.paidAt).toLocaleString()}
             </div>
           ) : (
             <div>
