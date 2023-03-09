@@ -23,6 +23,10 @@ app.get("/", (req, res) => {
   res.send("You are now listening in on 1111");
 });
 
+app.get('/api/keys/paypal', (req, res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID || 'sb')
+})
+
 app.use("/api/seed", seedRouter);
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
