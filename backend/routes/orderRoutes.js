@@ -29,13 +29,13 @@ orderRouter.post(
 );
 
 orderRouter.get(
-  '/history',
+  "/history",
   isAuth,
   asyncHandler(async (req, res) => {
     const orders = await Order.find({ user: req.user._id });
     res.status(200).send(orders.reverse());
   })
-)
+);
 
 orderRouter.get(
   "/:id",
