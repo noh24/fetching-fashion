@@ -5,6 +5,7 @@ import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import { toast } from "react-toastify";
 import axios from "axios";
 import getError from "../utility/getError";
+import { Helmet } from "react-helmet-async";
 
 const Payment = () => {
   const navigate = useNavigate();
@@ -80,6 +81,9 @@ const Payment = () => {
 
   return (
     <main>
+      <Helmet>
+        <title>Payment</title>
+      </Helmet>
       <section>
         {/* shipping address */}
         <article>
@@ -133,7 +137,9 @@ const Payment = () => {
             <p>${price.tax.toFixed(2)}</p>
           </div>
           <div>
-            <p><strong>Order Total</strong></p>
+            <p>
+              <strong>Order Total</strong>
+            </p>
             <p>${price.total.toFixed(2)}</p>
           </div>
           {isPending ? (
