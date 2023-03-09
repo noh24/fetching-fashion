@@ -16,6 +16,9 @@ const Payment = () => {
     if (!userInfo) {
       navigate("/signin");
     }
+    if (!shippingAddress) {
+      navigate("/shipping");
+    }
     const loadPaypalScript = async () => {
       const { data: clientId } = await axios.get("/api/keys/paypal", {
         headers: { authorization: `Bearer ${userInfo.token}` },
