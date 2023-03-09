@@ -11,7 +11,7 @@ const Shipping = () => {
   const [fullName, setFullName] = useState(shippingAddress.fullName || "");
   const [address, setAddress] = useState(shippingAddress.address || "");
   const [city, setCity] = useState(shippingAddress.city || "");
-  const [addressState, setState] = useState(shippingAddress.state || "")
+  const [addressState, setState] = useState(shippingAddress.state || "");
   const [postalCode, setPostalCode] = useState(
     shippingAddress.postalCode || ""
   );
@@ -44,6 +44,7 @@ const Shipping = () => {
       "shippingAddress",
       JSON.stringify(userShippingAddress)
     );
+    storeDispatch({ type: "CALCULATE_PRICE" });
     navigate("/payment");
   };
 
