@@ -11,7 +11,7 @@ const Header = () => {
     localStorage.removeItem("cart");
     localStorage.removeItem("userInfo");
     localStorage.removeItem("shippingAddress");
-    localStorage.removeItem('price');
+    localStorage.removeItem("price");
   };
 
   return (
@@ -37,17 +37,24 @@ const Header = () => {
       </div>
       <div>
         {userInfo ? (
-          <button onClick={signOutHandler}>Sign out</button>
+          <div>
+            <p>{userInfo.name}</p>
+            <p>
+              <NavLink>Profile</NavLink>
+            </p>
+            <p>
+              <NavLink>Order History</NavLink>
+            </p>
+            <p>
+              <button onClick={signOutHandler}>Sign out</button>
+            </p>
+          </div>
         ) : (
           <NavLink to='/signin'>Sign In</NavLink>
         )}
       </div>
-      <div>
-        <NavLink>Profile</NavLink>
-      </div>
-      <div>
-        <NavLink>Order History</NavLink>
-      </div>
+      <div></div>
+      <div></div>
     </nav>
   );
 };
