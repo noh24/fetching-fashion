@@ -45,12 +45,12 @@ const Order = () => {
         <article>
           <h1>Shipping Address</h1>
           <p>
-            <strong>Name: </strong> {state.shippingAddress.fullName}
+            <strong>Name: </strong> {order.shippingAddress.fullName}
           </p>
           <div>
-            <strong>Address: </strong> {state.shippingAddress.address},{" "}
-            {state.shippingAddress.city} {state.shippingAddress.state},{" "}
-            {state.shippingAddress.postalCode} {state.shippingAddress.country}
+            <strong>Address: </strong> {order.shippingAddress.address},{" "}
+            {order.shippingAddress.city} {order.shippingAddress.state},{" "}
+            {order.shippingAddress.postalCode} {order.shippingAddress.country}
           </div>
           {order.isDelivered ? (
             <div>
@@ -86,21 +86,21 @@ const Order = () => {
           <h1>Order Summary</h1>
           <div>
             <p>Items</p>
-            <p>${state.price.items.toFixed(2)}</p>
+            <p>${order.price.items.toFixed(2)}</p>
           </div>
           <div>
             <p>Shipping</p>
-            <p>${state.price.shipping.toFixed(2)}</p>
+            <p>${order.price.shipping.toFixed(2)}</p>
           </div>
           <div>
             <p>Tax</p>
-            <p>${state.price.tax.toFixed(2)}</p>
+            <p>${order.price.tax.toFixed(2)}</p>
           </div>
           <div>
             <p>
               <strong>Order Total</strong>
             </p>
-            <p>${state.price.total.toFixed(2)}</p>
+            <p>${order.price.total.toFixed(2)}</p>
           </div>
           {order.isPaid ? (
             <div>
