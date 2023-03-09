@@ -62,9 +62,9 @@ const Payment = () => {
             },
           }
         );
-        toast.success('Order is complete');
-          storeDispatch({ type: "CART_CLEAR" })
-          localStorage.removeItem('cart');
+        toast.success("Order is complete");
+        storeDispatch({ type: "CART_CLEAR" });
+        localStorage.removeItem("cart");
         navigate(`/order/${data.order._id}`);
       } catch (err) {
         toast.error(getError(err));
@@ -151,16 +151,3 @@ const Payment = () => {
 };
 
 export default Payment;
-// placing order creates an order item
-// order item consists of cart [ product details], shipping address,
-// payment method, payment result, item+shipping+tax=totalprice, isPaid, paidAt, isDelivered
-
-// most of these are in context store
-
-// order screen allows users to pay for their order
-
-// goal: eliminate payment method screen and placing order screen. collect payment and go straight to order screen
-
-// payment screen shows: shipping address (editable), items in the cart (editable), price, call to action(paypal)
-
-// paypal:
