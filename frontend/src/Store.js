@@ -9,7 +9,7 @@ const initialState = {
     : {},
   paymentMethod: null,
   userInfo: localStorage.user ? JSON.parse(localStorage.getItem("user")) : null,
-  price: {},
+  price: localStorage.price ? JSON.parse(localStorage.getItem('price')) : {},
 };
 
 const reducer = (state, action) => {
@@ -56,6 +56,7 @@ const reducer = (state, action) => {
       const shipping = items >= 100 ? round2(0) : round2(10);
       const tax = round2(0.15 * items);
       const total = items + shipping + tax;
+      localStorage.setItem('price', JSON.stringify({items, shipping, tax, total}))
       return {...state, price: {items, shipping, tax, total}};
 
     default:
