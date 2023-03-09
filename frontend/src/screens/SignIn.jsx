@@ -39,6 +39,11 @@ const SignIn = () => {
     }
   };
 
+  const demoAccount = () => {
+    setEmail('demo@example.com');
+    setPassword('123456');
+  }
+
   return (
     <main>
       <Helmet>
@@ -61,6 +66,7 @@ const SignIn = () => {
           />
           <div>
             <button type='submit'>Login</button>
+            <button type='submit' onClick={demoAccount}>Demo Account</button>
           </div>
         </form>
         <p>
