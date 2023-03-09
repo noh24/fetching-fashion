@@ -1,15 +1,17 @@
 import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Store } from "../Store";
 
 const Payment = () => {
+  const navigate = useNavigate();
   const { state, dispatch: storeDispatch } = useContext(Store);
   const { shippingAddress, userInfo, cart, price } = state;
 
   useEffect(() => {
-    storeDispatch({ type: "CALCULATE_PRICE" });
-  }, [storeDispatch]);
-
+    if (!userInfo) {
+      navigate('/signin')
+    }
+  }, [userInfo, navigate])
   return (
     <main>
       <section>
