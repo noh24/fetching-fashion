@@ -9,7 +9,7 @@ const Header = () => {
   const signOutHandler = () => {
     storeDispatch({ type: "USER_SIGNOUT" });
     localStorage.removeItem("cart");
-    localStorage.removeItem("user");
+    localStorage.removeItem("userInfo");
     localStorage.removeItem("shippingAddress");
     localStorage.removeItem('price');
   };

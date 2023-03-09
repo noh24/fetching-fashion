@@ -32,7 +32,7 @@ const SignIn = () => {
         password,
       });
       storeDispatch({ type: "USER_SIGNIN", payload: data });
-      localStorage.setItem("user", JSON.stringify(data));
+      localStorage.setItem("userInfo", JSON.stringify(data));
       navigate(redirect);
     } catch (err) {
       toast.error(getError(err));
@@ -64,7 +64,7 @@ const SignIn = () => {
           </div>
         </form>
         <p>
-          New Customer? <Link to='/signup'>Sign Up</Link>
+          New Customer? <Link to='/signup?redirect=/shipping'>Sign Up</Link>
         </p>
       </section>
     </main>
