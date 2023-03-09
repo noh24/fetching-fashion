@@ -8,6 +8,7 @@ import SignIn from "./screens/SignIn";
 import Shipping from "./screens/Shipping";
 import Payment from "./screens/Payment";
 import Order from "./screens/Order";
+import SignUp from "./screens/SignUp";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/product/:id' element={<SingleWinterApparel />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/signin' element={<SignIn />} />
+          <Route path='/signup' element={<SignUp />} />
           <Route path='/shipping' element={<Shipping />} />
           <Route path='/payment' element={<Payment />} />
           <Route path='/order/:id' element={<Order />} />
