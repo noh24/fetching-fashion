@@ -7,7 +7,7 @@ const initialState = {
   shippingAddress: localStorage.shippingAddress
     ? JSON.parse(localStorage.getItem("shippingAddress"))
     : {},
-  userInfo: localStorage.user ? JSON.parse(localStorage.getItem("userInfo")) : null,
+  userInfo: localStorage.userInfo ? JSON.parse(localStorage.getItem("userInfo")) : null,
   price: localStorage.price ? JSON.parse(localStorage.getItem("price")) : {},
 };
 
