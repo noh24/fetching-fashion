@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Store } from "../Store";
 
 const Header = () => {
+  const navigate = useNavigate();
   const { state, dispatch: storeDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 
@@ -12,6 +14,8 @@ const Header = () => {
     localStorage.removeItem("userInfo");
     localStorage.removeItem("shippingAddress");
     localStorage.removeItem("price");
+    toast.info("Successfully logged out");
+    navigate("/signin");
   };
 
   return (
