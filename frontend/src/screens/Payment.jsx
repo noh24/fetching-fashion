@@ -33,7 +33,7 @@ const Payment = () => {
       paypalDispatch({ type: "setLoadingStatus", value: "pending" });
     };
     loadPaypalScript();
-  }, [userInfo, navigate, paypalDispatch]);
+  }, [userInfo, navigate, paypalDispatch, shippingAddress]);
 
   const createOrder = (data, actions) => {
     return actions.order
