@@ -11,7 +11,7 @@ const Order = () => {
   const [error, setError] = useState("");
   const [order, setOrder] = useState({});
   const params = useParams();
-  const { state, dispatch } = useContext(Store);
+  const { state } = useContext(Store);
 
   useEffect(() => {
     const fetchData = async () => {
