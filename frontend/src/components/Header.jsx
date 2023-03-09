@@ -44,7 +44,7 @@ const Header = () => {
           <div>
             <p>{userInfo.name}</p>
             <p>
-              <NavLink>Profile</NavLink>
+              <NavLink to='/profile'>Profile</NavLink>
             </p>
             <p>
               <NavLink to='/orderhistory'>Order History</NavLink>

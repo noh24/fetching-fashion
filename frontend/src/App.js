@@ -10,6 +10,7 @@ import Payment from "./screens/Payment";
 import Order from "./screens/Order";
 import SignUp from "./screens/SignUp";
 import OrderHistory from "./screens/OrderHistory";
+import Profile from "./screens/Profile";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path='/payment' element={<Payment />} />
           <Route path='/order/:id' element={<Order />} />
           <Route path='/orderhistory' element={<OrderHistory />} />
+          <Route path='/profile' element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>
