@@ -57,12 +57,14 @@ const SignIn = () => {
             type='email'
             placeholder='Email Address'
             required
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type='password'
             placeholder='Password'
             required
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <div>
