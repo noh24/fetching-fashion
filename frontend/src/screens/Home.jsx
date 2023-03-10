@@ -30,7 +30,7 @@ const Home = () => {
         <title>Home</title>
       </Helmet>
       <section className='relative overflow-hidden flex-nowrap flex'>
-        {slideShow.map((slide, index) => (
+        {slideShow.map((slide) => (
           <img
             className='min-w-full sm:h-screen object-cover w-full transition duration-1000 flex items-center justify-center ease-in'
             style={{ transform: `translate(-${currentSlide * 100}%)` }}
