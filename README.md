@@ -16,6 +16,7 @@
 - bcryptjs
 - axios
 - react-toastify
+- tailwind css
 
 ## Instructions 
 
