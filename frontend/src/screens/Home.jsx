@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import FeaturedHomeSection from "./../components/FeaturedHomeSection";
 import { Helmet } from "react-helmet-async";
 
@@ -25,9 +24,9 @@ const Home = () => {
   });
 
   return (
-    <main>
+    <main className=''>
       <Helmet>
-        <title>Home</title>
+        <title>Fetching Fashion</title>
       </Helmet>
       <section className='relative overflow-hidden flex-nowrap flex'>
         {slideShow.map((slide) => (
@@ -40,15 +39,7 @@ const Home = () => {
           ></img>
         ))}
       </section>
-
-      <section className='my-20 px-4 flex flex-col items-center text-gray-900'>
-        <Link to={`/products/winter-apparel`}>
-          <h1 className='text-3xl mb-20'>Shop Winter Apparel</h1>
-        </Link>
-        <div>
-          <FeaturedHomeSection />
-        </div>
-      </section>
+      <FeaturedHomeSection/>
     </main>
   );
 };
