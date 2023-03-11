@@ -30,7 +30,7 @@ const FeaturedHomeSection = () => {
       <Link to={`/products/winter-apparel`}>
         <h1 className='sm:text-2xl text-xl mb-10 sm:mb-20'>Shop Winter Apparel</h1>
       </Link>
-      <div className='w-full sm:grid sm:grid-cols-2'>
+      <div className='w-full lg:grid lg:grid-cols-2'>
           <Product product={products[0]}></Product>
           <Product product={products[products.length - 1]}></Product>
       </div>
