@@ -22,11 +22,11 @@ const WinterApparel = () => {
   }, [dispatch]);
 
   return (
-    <main>
+    <main className='text-gray-500 flex flex-col items-center px-2 sm:px-4'>
       <Helmet>
         <title>Winter Apparel</title>
       </Helmet>
-      <h1>Winter Apparel</h1>
+      <h1 className='sm:text-2xl text-xl mb-10'>Winter Apparel</h1>
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
