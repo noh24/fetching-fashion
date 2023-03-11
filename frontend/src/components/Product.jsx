@@ -25,7 +25,7 @@ const Product = (props) => {
 
   return (
     <div className='flex flex-col justify-center items-center space-y-4 my-6 text-center'>
-      <Link to={`/product/${product._id}`}>
+      <Link to={`/product/${product._id}`} className='hover:opacity-90'>
         <div className='h-[400px] w-full sm:w-[400px] overflow-hidden relative mb-4'>
           <img
             className='h-full w-full object-cover z-10 hover:z-0 sm:absolute'
@@ -52,7 +52,7 @@ const Product = (props) => {
 
       <div>
         <button
-          className='bg-gray-800 text-gray-200 font-medium px-4 py-2 rounded-full shadow-sm hover:rounded-full'
+          className='bg-gray-800 text-gray-200 font-medium px-4 py-2 rounded-full shadow-sm hover:opacity-90'
           type='button'
           onClick={() => addCartHandler(product)}
         >
