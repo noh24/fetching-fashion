@@ -94,12 +94,12 @@ const Header = () => {
                 <PersonIcon fontSize='medium' />
               </div>
               {userInfo && (
-                <div>
+                <span className='-ml-1'>
                   <KeyboardArrowDownOutlinedIcon
                     fontSize='small'
                     aria-hidden='true'
                   />
-                </div>
+                </span>
               )}
             </Menu.Button>
           </div>
