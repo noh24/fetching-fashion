@@ -24,7 +24,7 @@ const Product = (props) => {
   };
 
   return (
-    <div className='flex flex-col justify-center items-center space-y-4'>
+    <div className='flex flex-col justify-center items-center space-y-4 my-6'>
       <Link to={`/product/${product._id}`}>
         <div className='h-[400px] w-full sm:w-[400px] overflow-hidden relative mb-4'>
           <img
