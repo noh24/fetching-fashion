@@ -42,7 +42,9 @@ const Product = (props) => {
         <div className='space-y-3 font-medium '>
           <p className='text-lg'>{`${product.color} ${product.name}`}</p>
           <p>
-            <span className='line-through text-gray-400'>${product.price + 10}</span>{" "}
+            <span className='line-through text-gray-400'>
+              ${product.price + 10}
+            </span>{" "}
             <span className='text-green-500'>${product.price}</span>
           </p>
         </div>
