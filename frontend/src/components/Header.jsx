@@ -82,9 +82,7 @@ const Header = () => {
             <ShoppingBagOutlinedIcon fontSize='medium' />
           </NavLink>
           {cart.length > 0 && (
-            <span className='absolute flex items-center justify-center top-0 -right-1 text-gray-200 bg-gray-600 border-gray-900 border w-3 h-3 rounded-full text-xs'>
-              {/* {cart.length > 0 &&
-              cart.reduce((acc, curr) => acc + curr.quantity, 0)} */}
+            <span className='absolute flex items-center justify-center top-0 -right-1 text-gray-200 bg-gray-900 border-white -900 border-2 w-3 h-3 rounded-full text-xs'>
             </span>
           )}
         </div>
