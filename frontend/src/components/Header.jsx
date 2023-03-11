@@ -27,7 +27,7 @@ const Header = () => {
   };
 
   return (
-    <nav className='container flex items-center justify-between py-3 sm:py-4 px-2 font-medium'>
+    <nav className='container flex items-center justify-between py-3 sm:py-4 px-2 font-medium sticky top-0 z-50 bg-white border-b border-gray-200'>
       <div className=''>
         <Menu as='div' className='relative inline-block text-left z-10'>
           <div>
@@ -76,17 +76,17 @@ const Header = () => {
         </NavLink>
       </div>
 
-      <section className='flex justify-center items-center gap-2 relative'>
-        <div>
-          <div className=''>
-            <NavLink to='/cart'>
-              <ShoppingBagOutlinedIcon fontSize='medium' />
-            </NavLink>
-          </div>
-          <span>
-            {cart.length > 0 &&
-              cart.reduce((acc, curr) => acc + curr.quantity, 0)}
-          </span>
+      <section className='flex justify-center items-center gap-2 sm:gap-3 relative'>
+        <div className='relative'>
+          <NavLink to='/cart'>
+            <ShoppingBagOutlinedIcon fontSize='medium' />
+          </NavLink>
+          {cart.length > 0 && (
+            <span className='absolute flex items-center justify-center top-0 -right-1 text-gray-200 bg-gray-600 border-gray-900 border w-3 h-3 rounded-full text-xs'>
+              {/* {cart.length > 0 &&
+              cart.reduce((acc, curr) => acc + curr.quantity, 0)} */}
+            </span>
+          )}
         </div>
 
         <Menu as='div' className='relative inline-block text-left z-10'>
