@@ -41,9 +41,9 @@ const Home = () => {
         ))}
       </section>
 
-      <section>
+      <section className='my-20 px-4 flex flex-col items-center text-gray-900'>
         <Link to={`/products/winter-apparel`}>
-          <h1>Shop Winter Apparel</h1>
+          <h1 className='text-3xl mb-20'>Shop Winter Apparel</h1>
         </Link>
         <div>
           <FeaturedHomeSection />
