@@ -47,11 +47,10 @@ const Rating = (props) => {
   }
   return (
     <>
-      <div className='flex flex-col items-center gap-2 text-amber-400'>
-        <h4 className='font-bold text-slate-700'>Customer reviews</h4>
+      <div className='flex flex-col items-center lg:items-start gap-2 text-amber-400'>
         <span className='flex items-center gap-4 text-sm rounded text-slate-500'>
           <span
-            className='flex gap-1 text-amber-400'
+            className='flex gap-1 text-gray-800'
             role='img'
             aria-label={`Rating: ${rating} out of 5 stars`}
           >
