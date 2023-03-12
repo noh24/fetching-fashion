@@ -26,14 +26,14 @@ const Product = (props) => {
   return (
     <div className='flex flex-col justify-center items-center space-y-4 my-6 text-center'>
       <Link to={`/product/${product._id}`} className='hover:opacity-90'>
-        <div className='h-[400px] w-full sm:w-[400px] overflow-hidden relative mb-4'>
+        <div className='h-[400px] w-full md:w-[400px] overflow-hidden relative mb-4'>
           <img
-            className='h-full w-full object-cover z-10 hover:z-0 sm:absolute'
+            className='h-full w-full object-cover z-10 hover:z-0 md:absolute'
             src={product.images[0]}
             alt={`${product.color} ${product.name}`}
           />
           <img
-            className='h-full w-full object-cover hover:z-10 sm:absolute'
+            className='h-full w-full object-cover hover:z-10 md:absolute'
             src={product.images[1]}
             alt={`${product.color} ${product.name}`}
           />
