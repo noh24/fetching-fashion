@@ -1,4 +1,5 @@
 import React from "react";
+import { nanoid } from "nanoid";
 
 const Rating = (props) => {
   const { rating, reviews } = props;
@@ -8,7 +9,7 @@ const Rating = (props) => {
   let emptyStars = [];
   for (let i = 0; i < star; i++) {
     filledStars.push(
-      <span aria-hidden='true' key={Math.floor(Math.random() * 100 + i)}>
+      <span aria-hidden='true' key={nanoid()}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 24 24'
@@ -26,7 +27,7 @@ const Rating = (props) => {
   }
   for (let i = 0; i < 5 - star; i++) {
     emptyStars.push(
-      <span aria-hidden='true' key={Math.floor(Math.random() * 100 + i)}>
+      <span aria-hidden='true' key={nanoid()}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
@@ -65,6 +66,6 @@ const Rating = (props) => {
       </div>
     </>
   );
-}
+};
 
 export default Rating;
