@@ -32,7 +32,7 @@ const WinterApparel = () => {
       ) : error ? (
         <div>{error}</div>
       ) : (
-        <section>
+        <section className='lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-4'>
           {products.map((item) => (
             <Product key={item._id} product={item}></Product>
           ))}
