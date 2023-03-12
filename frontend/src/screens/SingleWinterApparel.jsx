@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import useProductReducer from "../hooks/useProductReducer";
 import { useParams } from "react-router-dom";
 import getError from "../utility/getError";
@@ -9,12 +9,24 @@ import SizeGuide from "../components/SizeGuide";
 import Rating from "../components/Rating";
 import { Store } from "../Store";
 import { toast } from "react-toastify";
+import { nanoid } from "nanoid";
+import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
+import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 
 const SingleWinterApparel = () => {
   const params = useParams();
   const { loading, error, products: product, dispatch } = useProductReducer();
 
   const { state, dispatch: storeDispatch } = useContext(Store);
+
+  const [images, setImages] = useState(0);
+  // [image, image, image]
+  const prevSlide = () => {
+    setImages(images === 0 ? product.images.length - 1 : images - 1);
+  };
+  const nextSlide = () => {
+    setImages(images === product.images.length - 1 ? 0 : images + 1);
+  };
 
   useEffect(() => {
     dispatch({ type: "FETCH_REQUEST" });
@@ -44,46 +56,95 @@ const SingleWinterApparel = () => {
   };
 
   return (
-    <main>
+    <main className='px-2 sm:px-4'>
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
         <div>{error}</div>
       ) : (
-        <section>
+        <section className='flex flex-col items-center lg:grid lg:grid-cols-2 justify-items-center lg:content-start'>
           <Helmet>
             <title>{`${product.name}`}</title>
           </Helmet>
-          <article>
-            {product.images.map((item) => (
-              <div key={item}>
-                <img src={item} alt={product.name} />
+          <article className=''>
+            <div className='h-[350px] w-full md:h-[500px] md:w-[500px] overflow-hidden relative mb-4'>
+              {product.images.map((item, index) => (
+                <div
+                  key={nanoid()}
+                  className={
+                    index === images
+                      ? `h-full w-full object-cover md:absolute flex`
+                      : "hidden"
+                  }
+                >
+                  <img src={item} alt={product.name} />
+                </div>
+              ))}
+              <div
+                className='absolute top-0 h-full px-8 z-30 flex items-center lg:hidden cursor-pointer hover:opacity-50'
+                onClick={prevSlide}
+              >
+                <ArrowBackIosNewOutlinedIcon fontSize='small' />
               </div>
-            ))}
-          </article>
-
-          <article>
-            <div>
-              <Rating rating={product.rating} reviews={product.reviews} />
-              <h3>{`${product.color} ${product.name}`}</h3>
-              <p>
-                <span>${product.price + 10}</span> ${product.price}
-              </p>
+              <div
+                className='absolute top-0 right-0 h-full px-8 z-30 flex items-center lg:hidden cursor-pointer hover:opacity-50'
+                onClick={nextSlide}
+              >
+                <ArrowForwardIosOutlinedIcon />
+              </div>
             </div>
-            <div>
-              <button type='button' onClick={() => addToCartHandler(product)}>
-                Add To Cart
-              </button>
-            </div>
-            <div>
-              {product.description.map((desc, i) => (
-                <p key={i}>{desc}</p>
+            <div className='lg:flex hidden lg:gap-4'>
+              {product.images.map((item, index) => (
+                <div
+                  key={nanoid()}
+                  className={`w-20 cursor-pointer`}
+                  onClick={() => setImages(index)}
+                >
+                  <img
+                    src={item}
+                    alt={product.name}
+                    className={index === images ? `` : `opacity-50`}
+                  />
+                </div>
               ))}
             </div>
           </article>
 
+          <article className='text-left space-y-8 flex flex-col items-center lg:items-start lg:px-16 '>
+            <div className='space-y-8'>
+              <Rating rating={product.rating} reviews={product.reviews} />
+              <h3 className='text-2xl'>{`${product.color} ${product.name}`}</h3>
+              <p className='font-medium'>
+                <span className='line-through text-gray-400'>
+                  ${product.price + 10}
+                </span>{" "}
+                <span className='text-green-500'>${product.price}</span>
+              </p>
+              <div>
+                <button
+                  type='button'
+                  onClick={() => addToCartHandler(product)}
+                  className='bg-gray-800 text-gray-200 font-medium px-4 py-2 rounded-full shadow-sm hover:opacity-90'
+                >
+                  Add To Cart
+                </button>
+              </div>
+            </div>
+            <div className='mt-8'>
+              <ul className='space-y-2 px-6 list-disc text-gray-800'>
+                {product.description.map((desc) => (
+                  <li key={nanoid()}>{desc}</li>
+                ))}
+              </ul>
+            </div>
+          </article>
+          
+          <article className='flex flex-col items-center lg:col-span-2'>
           <SizeTable />
           <SizeGuide />
+
+          </article>
+        
         </section>
       )}
     </main>
