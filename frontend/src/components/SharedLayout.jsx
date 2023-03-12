@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const SharedLayout = () => {
   return (
-    <div className='container mx-auto flex flex-col justify-between items-center min-h-screen w-full relative'>
+    <div className='container mx-auto flex flex-col justify-between items-center min-h-screen w-full relative text-gray-500'>
       <ToastContainer position='bottom-center' index={1} />
       <Header />
       <div className='flex-1'>

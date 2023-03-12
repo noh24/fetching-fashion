@@ -26,7 +26,7 @@ const FeaturedHomeSection = () => {
   ) : error ? (
     <div>{error}</div>
   ) : (
-    <section className='my-10 sm:my-20 px-2 flex flex-col items-center justify-center text-gray-500'>
+    <section className='my-10 sm:my-20 px-2 flex flex-col items-center justify-center'>
       <Link to={`/products/winter-apparel`}>
         <h1 className='sm:text-2xl text-xl mb-10 sm:mb-20'>Shop Winter Apparel</h1>
       </Link>
