@@ -84,13 +84,13 @@ const SingleWinterApparel = () => {
                 className='absolute top-0 h-full px-8 z-30 flex items-center lg:hidden cursor-pointer hover:opacity-50'
                 onClick={prevSlide}
               >
-                <ArrowBackIosNewOutlinedIcon fontSize='small' />
+                <ArrowBackIosNewOutlinedIcon fontSize='medium' />
               </div>
               <div
                 className='absolute top-0 right-0 h-full px-8 z-30 flex items-center lg:hidden cursor-pointer hover:opacity-50'
                 onClick={nextSlide}
               >
-                <ArrowForwardIosOutlinedIcon />
+                <ArrowForwardIosOutlinedIcon fontSize='medium' />
               </div>
             </div>
             <div className='lg:flex hidden lg:gap-4'>
