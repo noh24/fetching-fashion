@@ -53,7 +53,7 @@ const SignIn = () => {
       <h1 className='text-2xl font-medium'>Sign In</h1>
       <form onSubmit={submitHandler} className='space-y-4'>
         <input
-          className='py-2 px-3 w-full border rounded-full focus:border-none focus:outline-none'
+          className='py-2 px-3 w-full border border-gray-300 rounded-full focus:outline-none'
           type='email'
           placeholder='Email Address'
           required
@@ -61,7 +61,7 @@ const SignIn = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
-          className='py-2 px-3 w-full border rounded-full focus:border-none focus:outline-none'
+          className='py-2 px-3 w-full border border-gray-300 rounded-full focus:outline-none'
           type='password'
           placeholder='Password'
           required
