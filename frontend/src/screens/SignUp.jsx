@@ -45,37 +45,53 @@ const SignUp = () => {
   };
 
   return (
-    <main>
+    <main className='py-4 px-2 space-y-4 flex flex-col'>
       <Helmet>
         <title>Sign Up</title>
       </Helmet>
-      <h1>Sign Up</h1>
-      <form onSubmit={submitHandler}>
+      <h1 className='text-2xl font-medium'>Sign Up</h1>
+      <form onSubmit={submitHandler} className='space-y-4'>
         <input
+          className='py-2 px-3 w-full border border-gray-300 rounded-full focus:outline-none'
           type='text'
           placeholder='Name'
           onChange={(e) => setName(e.target.value)}
         />
         <input
+          className='py-2 px-3 w-full border border-gray-300 rounded-full focus:outline-none'
           type='email'
           placeholder='Email Address'
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          className='py-2 px-3 w-full border border-gray-300 rounded-full focus:outline-none'
           type='password'
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)}
         />
         <input
+          className='py-2 px-3 w-full border border-gray-300 rounded-full focus:outline-none'
           type='password'
           placeholder='Confirm Password'
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <button type='submit'>Sign Up</button>
+        <div>
+          <button
+            type='submit'
+            className='bg-gray-800 text-white text-sm font-medium px-8 py-3 rounded-full w-full shadow-sm hover:opacity-90'
+          >
+            Sign Up
+          </button>
+        </div>
       </form>
       <p>
         Already a Customer?{" "}
-        <Link to={`/signin?redirect=${redirect}`}>Sign In</Link>
+        <Link
+          to={`/signin?redirect=${redirect}`}
+          className='underline text-gray-800'
+        >
+          Sign In
+        </Link>
       </p>
     </main>
   );
