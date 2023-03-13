@@ -11,8 +11,7 @@ const SharedLayout = () => {
       <ToastContainer position='bottom-center' index={1} />
       <Header />
       <div className='flex-1'>
-
-      <Outlet />
+        <Outlet />
       </div>
       <Footer />
     </div>
