@@ -14,7 +14,7 @@ const Rating = (props) => {
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 24 24'
           fill='currentColor'
-          className='w-6 h-6'
+          className='w-5 h-5'
         >
           <path
             fillRule='evenodd'
@@ -34,7 +34,7 @@ const Rating = (props) => {
           viewBox='0 0 24 24'
           strokeWidth='1.5'
           stroke='currentColor'
-          className='w-6 h-6'
+          className='w-5 h-5'
         >
           <path
             strokeLinecap='round'
@@ -46,24 +46,20 @@ const Rating = (props) => {
     );
   }
   return (
-    <>
-      <div className='flex flex-col items-center lg:items-start gap-2 text-amber-400'>
-        <span className='flex items-center gap-4 text-sm rounded text-slate-500'>
-          <span
-            className='flex gap-1 text-gray-800'
-            role='img'
-            aria-label={`Rating: ${rating} out of 5 stars`}
-          >
-            {filledStars.map((item) => item)}
-            {emptyStars.map((stars) => stars)}
-          </span>
-          <span>{rating} out 5</span>
+    <div className='flex flex-col items-center lg:items-start gap-2 text-amber-400'>
+      <span className='flex items-center gap-2 text-sm rounded text-slate-500'>
+        <span
+          className='flex gap-1 text-yellow-400'
+          role='img'
+          aria-label={`Rating: ${rating} out of 5 stars`}
+        >
+          {filledStars.map((item) => item)}
+          {emptyStars.map((stars) => stars)}
         </span>
-        <span className='text-xs leading-6 text-slate-400'>
-          based on {reviews} user ratings
-        </span>
-      </div>
-    </>
+        {/* <span>{rating} out 5.0</span> */}
+        <span className='text-xs leading-6 text-slate-400'>({reviews})</span>
+      </span>
+    </div>
   );
 };
 
