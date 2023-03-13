@@ -5,10 +5,12 @@ import { toast } from "react-toastify";
 import { Store } from "../Store";
 import getError from "../utility/getError";
 import { Helmet } from "react-helmet-async";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const { state, dispatch : storeDispatch} = useContext(Store);
+  const { state, dispatch: storeDispatch } = useContext(Store);
   const { cart } = state;
 
   const updatedCartItem = async (item, quantity) => {
@@ -32,7 +34,7 @@ const Cart = () => {
   };
 
   return (
-    <main>
+    <main className='flex flex-col px-2 container mx-auto outline w-full lg:grid lg:grid-cols-2'>
       <Helmet>
         <title>Cart</title>
       </Helmet>
@@ -42,32 +44,39 @@ const Cart = () => {
           Shopping cart empty. <Link to='/'>Go shopping</Link>
         </div>
       ) : (
-        <section>
+        <section className='flex flex-col outline items-center space-y-4'>
           {cart.map((item) => (
-            <article key={item._id}>
+            <article
+              key={item._id}
+              className='grid grid-cols-3 items-end justify-around w-full outline'
+            >
               <div>
-                <Link to={`/product/${item._id}`}></Link>
-                <img src={item.images[0]} alt={item.name} />
-                <p>{`${item.color} ${item.name}`}</p>
+                <img className='w-24' src={item.images[0]} alt={item.name} />
               </div>
-              <div>
-                <button
-                  disabled={item.quantity <= 1}
-                  onClick={() => updatedCartItem(item, item.quantity - 1)}
-                >
-                  -
-                </button>
-                <span>{item.quantity}</span>
-                <button
-                  disabled={item.quantity >= item.countInStock}
-                  onClick={() => updatedCartItem(item, item.quantity + 1)}
-                >
-                  +
-                </button>
-              </div>
-              <p>${item.price}</p>
-              <div>
+              <div className='self-center col-span-2'>
+                <Link to={`/product/${item._id}`}>
+                  <p>{`${item.color} ${item.name}`}</p>
+                </Link>
+                <p>${item.price}</p>
+
+              <div className='flex justify-between pr-4'>
+                <div className='space-x-2'>
+                  <button
+                    disabled={item.quantity <= 1}
+                    onClick={() => updatedCartItem(item, item.quantity - 1)}
+                    >
+                    <RemoveCircleOutlineIcon className='' fontSize='small' />
+                  </button>
+                  <span>{item.quantity}</span>
+                  <button
+                    disabled={item.quantity >= item.countInStock}
+                    onClick={() => updatedCartItem(item, item.quantity + 1)}
+                    >
+                    <AddCircleOutlineIcon fontSize='small' />
+                  </button>
+                </div>
                 <button onClick={() => removeCartItems(item)}>Remove</button>
+                    </div>
               </div>
             </article>
           ))}
@@ -82,7 +91,9 @@ const Cart = () => {
             {cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0)}{" "}
           </h1>
           <div>
-            <button disabled={cart.length <= 0} onClick={proceedToCheckout}>Proceed To Checkout</button>
+            <button disabled={cart.length <= 0} onClick={proceedToCheckout}>
+              Proceed To Checkout
+            </button>
           </div>
         </article>
       </section>
