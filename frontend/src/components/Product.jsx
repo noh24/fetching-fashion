@@ -4,6 +4,7 @@ import { Store } from "../Store";
 import { toast } from "react-toastify";
 import getError from "./../utility/getError";
 import axios from "axios";
+import Rating from "./Rating";
 
 const Product = (props) => {
   const { product } = props;
@@ -39,8 +40,9 @@ const Product = (props) => {
           />
         </div>
 
-        <div className='space-y-3 font-medium '>
+        <div className='space-y-3 font-medium flex flex-col items-center'>
           <p className='text-lg'>{`${product.color} ${product.name}`}</p>
+          <Rating rating={product.rating} reviews={product.reviews} />
           <p>
             <span className='line-through text-gray-400'>
               ${product.price + 10}
