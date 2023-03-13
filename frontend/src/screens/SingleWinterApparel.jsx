@@ -20,7 +20,6 @@ const SingleWinterApparel = () => {
   const { state, dispatch: storeDispatch } = useContext(Store);
 
   const [images, setImages] = useState(0);
-  // [image, image, image]
   const prevSlide = () => {
     setImages(images === 0 ? product.images.length - 1 : images - 1);
   };
@@ -62,7 +61,7 @@ const SingleWinterApparel = () => {
       ) : error ? (
         <div>{error}</div>
       ) : (
-        <section className='flex flex-col items-center lg:grid lg:grid-cols-2 justify-items-center lg:content-start'>
+        <section className='flex flex-col items-center lg:grid lg:grid-cols-2 justify-items-center'>
           <Helmet>
             <title>{`${product.name}`}</title>
           </Helmet>
@@ -72,28 +71,28 @@ const SingleWinterApparel = () => {
                 <div
                   key={nanoid()}
                   className={
-                    index === images
+                    `${index === images
                       ? `h-full w-full object-cover md:absolute flex`
-                      : "hidden"
+                      : "hidden"}`
                   }
                 >
                   <img src={item} alt={product.name} />
                 </div>
               ))}
               <div
-                className='absolute top-0 h-full px-8 z-30 flex items-center lg:hidden cursor-pointer hover:opacity-50'
+                className='absolute top-0 h-full px-4 pr-12 z-30 flex items-end pb-20 lg:hidden cursor-pointer hover:opacity-80'
                 onClick={prevSlide}
               >
                 <ArrowBackIosNewOutlinedIcon fontSize='medium' />
               </div>
               <div
-                className='absolute top-0 right-0 h-full px-8 z-30 flex items-center lg:hidden cursor-pointer hover:opacity-50'
+                className='absolute top-0 right-0 h-full px-4 pl-12 z-30 flex items-end pb-20 lg:hidden cursor-pointer hover:opacity-80'
                 onClick={nextSlide}
               >
                 <ArrowForwardIosOutlinedIcon fontSize='medium' />
               </div>
             </div>
-            <div className='lg:flex hidden lg:gap-4'>
+            <div className='lg:flex hidden lg:gap-4 lg:justify-center'>
               {product.images.map((item, index) => (
                 <div
                   key={nanoid()}
@@ -110,8 +109,8 @@ const SingleWinterApparel = () => {
             </div>
           </article>
 
-          <article className='text-left space-y-8 flex flex-col items-center lg:items-start lg:px-16 '>
-            <div className='space-y-8'>
+          <article className='text-left flex flex-col items-center lg:items-start lg:px-16 lg:self-start'>
+            <div className='space-y-4'>
               <Rating rating={product.rating} reviews={product.reviews} />
               <h3 className='text-2xl'>{`${product.color} ${product.name}`}</h3>
               <p className='font-medium'>
@@ -124,27 +123,25 @@ const SingleWinterApparel = () => {
                 <button
                   type='button'
                   onClick={() => addToCartHandler(product)}
-                  className='bg-gray-800 text-gray-200 font-medium px-4 py-2 rounded-full shadow-sm hover:opacity-90'
+                  className='bg-gray-800 text-white text-sm font-medium px-8 py-3 rounded-full shadow-sm hover:opacity-90'
                 >
                   Add To Cart
                 </button>
               </div>
             </div>
             <div className='mt-8'>
-              <ul className='space-y-2 px-6 list-disc text-gray-800'>
+              <ul className='space-y-2 px-6 pl-12 list-disc text-gray-800'>
                 {product.description.map((desc) => (
                   <li key={nanoid()}>{desc}</li>
                 ))}
               </ul>
             </div>
           </article>
-          
-          <article className='flex flex-col items-center lg:col-span-2'>
-          <SizeTable />
-          <SizeGuide />
 
+          <article className='flex flex-col items-center lg:col-span-2'>
+            <SizeTable />
+            <SizeGuide />
           </article>
-        
         </section>
       )}
     </main>
