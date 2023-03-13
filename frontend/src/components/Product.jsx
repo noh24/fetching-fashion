@@ -54,7 +54,7 @@ const Product = (props) => {
 
       <div>
         <button
-          className='bg-gray-800 text-gray-200 font-medium px-4 py-2 rounded-full shadow-sm hover:opacity-90'
+          className='bg-gray-800 text-white text-sm font-medium px-8 py-3 rounded-full shadow-sm hover:opacity-90'
           type='button'
           onClick={() => addCartHandler(product)}
         >
