@@ -1,16 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ModalCart from "../screens/ModalCart";
+import { Transition } from "@headlessui/react";
 
 const SharedLayout = () => {
+  const [toggleCart, setToggleCart] = useState(false);
   return (
-    <div className='container mx-auto flex flex-col justify-between items-center min-h-screen w-full relative text-gray-500'>
+    <div
+      className={`${
+        toggleCart ? "h-screen overflow-hidden" : " "
+      } mx-auto flex flex-col justify-between items-center min-h-screen w-full relative text-gray-500`}
+    >
       <ToastContainer position='bottom-center' index={1} />
-      <Header />
-      <div className='flex-1 w-full container mx-auto flex justify-center'>
+      <Header toggleCart={setToggleCart} />
+      <div
+        className={`${
+          toggleCart
+            ? "block transition transform ease-in duration-1000"
+            : "hidden"
+        } fixed top-0 z-50 w-full min-h-screen bg-gray-800 bg-opacity-50 outline overscroll-contain`}
+      >
+        <Transition
+          show={toggleCart}
+          enter='transition-opacity transition transform ease-in duration-1000'
+          enterFrom='opacity-0 translate-x-1000'
+          enterTo='opacity-100  translate-x-0 '
+          leave='transition-opacityduration-1000'
+          leaveFrom='opacity-100'
+          leaveTo='opacity-0'
+        >
+          <ModalCart toggleCart={setToggleCart} />
+        </Transition>
+      </div>
+      <div className='flex-1 w-full container mx-auto flex justify-center min-h-screen overflow-hidden'>
         <Outlet />
       </div>
       <Footer />
