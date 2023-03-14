@@ -16,8 +16,8 @@ const OrderHistory = () => {
 
   const sortOrder = () => {
     setOrders(orders.slice().reverse());
-    setDesc(prev => !prev);
-  }
+    setDesc((prev) => !prev);
+  };
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -52,9 +52,18 @@ const OrderHistory = () => {
       <section className='space-y-4'>
         <div className='flex items-end justify-between space-x-4'>
           <h1 className='text-2xl font-medium'>Order History</h1>
-          <button onClick={sortOrder} className='text-xs bg-gray-800 text-white rounded-full px-2 py-1 shadow' type='button'>{desc ? "Most Recent to Oldest" : "Oldest to Most Recent"}</button>
+          <button
+            onClick={sortOrder}
+            className='text-xs bg-gray-800 text-white rounded-full px-2 py-1 shadow'
+            type='button'
+          >
+            {desc ? "Most Recent to Oldest" : "Oldest to Most Recent"}
+          </button>
         </div>
-        <section key={orders} className='space-y-4 flex flex-col lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-4'>
+        <section
+          key={orders}
+          className='space-y-4 flex flex-col lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-4'
+        >
           {orders.map((order) => (
             <div
               key={order._id}
