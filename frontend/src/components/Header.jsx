@@ -8,7 +8,7 @@ import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDown
 import PersonIcon from "@mui/icons-material/Person";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const Header = () => {
+const Header = (props) => {
   const navigate = useNavigate();
   const { state, dispatch: storeDispatch } = useContext(Store);
   const { cart, userInfo } = state;
@@ -27,7 +27,7 @@ const Header = () => {
   };
 
   return (
-    <nav className='container flex items-center justify-between py-3 sm:py-4 px-2 font-medium sticky top-0 z-50 bg-white border-b border-gray-200 mb-10 text-gray-800'>
+    <nav className='w-full flex items-center justify-between py-3 sm:py-4 px-2 font-medium sticky top-0 z-50 bg-white border-b border-gray-200 mb-10 text-gray-800'>
       <div className=''>
         <Menu as='div' className='relative inline-block text-left z-10'>
           <div>
@@ -66,6 +66,7 @@ const Header = () => {
         </Menu>
       </div>
 
+      {/* LOGO */}
       <div className='w-28 sm:w-40'>
         <NavLink to='/'>
           <img
@@ -76,17 +77,19 @@ const Header = () => {
         </NavLink>
       </div>
 
+      {/* Cart */}
       <section className='flex justify-center items-center gap-2 sm:gap-3 relative'>
         <div className='relative'>
-          <NavLink to='/cart'>
+          {/* <NavLink to='/cart'> */}
+          <NavLink onClick={() => props.toggleCart(prev => !prev)}>
             <ShoppingBagOutlinedIcon fontSize='medium' />
           </NavLink>
           {cart.length > 0 && (
-            <span className='absolute flex items-center justify-center top-0 -right-1 text-gray-200 bg-gray-900 border-white -900 border-2 w-3 h-3 rounded-full text-xs'>
-            </span>
+            <span className='absolute flex items-center justify-center top-0 -right-1 text-gray-200 bg-gray-900 border-white -900 border-2 w-3 h-3 rounded-full text-xs'></span>
           )}
         </div>
 
+        {/* Profile */}
         <Menu as='div' className='relative inline-block text-left z-10'>
           <div>
             <Menu.Button className='inline-flex w-full justify-center items-center rounded-md font-medium focus:outline-none capitalize'>
