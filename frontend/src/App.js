@@ -3,7 +3,6 @@ import Home from "./screens/Home";
 import SharedLayout from "./components/SharedLayout";
 import SingleWinterApparel from "./screens/SingleWinterApparel";
 import WinterApparel from "./screens/WinterApparel";
-import Cart from "./screens/Cart";
 import SignIn from "./screens/SignIn";
 import Shipping from "./screens/Shipping";
 import Payment from "./screens/Payment";
@@ -23,7 +22,6 @@ function App() {
             element={<WinterApparel />}
           ></Route>
           <Route path='/product/:id' element={<SingleWinterApparel />} />
-          <Route path='/cart' element={<Cart />} />
           <Route path='/signin' element={<SignIn />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/shipping' element={<Shipping />} />
