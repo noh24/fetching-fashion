@@ -36,7 +36,7 @@ const SharedLayout = () => {
           <ModalCart toggleCart={setToggleCart} />
         </Transition>
       </div>
-      <div className='flex-1 w-full container mx-auto flex justify-center min-h-screen overflow-hidden'>
+      <div className='flex-1 w-full container mx-auto flex justify-center min-h-screen'>
         <Outlet />
       </div>
       <Footer />
