@@ -26,10 +26,10 @@ const SharedLayout = () => {
       >
         <Transition
           show={toggleCart}
-          enter='transition-opacity transition transform ease-in duration-1000'
-          enterFrom='opacity-0 translate-x-1000'
-          enterTo='opacity-100  translate-x-0 '
-          leave='transition-opacityduration-1000'
+          enter='transition-opacity transition transform ease-in duration-500'
+          enterFrom='opacity-0'
+          enterTo='opacity-100'
+          leave='transition-opacity duration-500'
           leaveFrom='opacity-100'
           leaveTo='opacity-0'
         >
