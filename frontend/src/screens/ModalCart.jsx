@@ -32,6 +32,10 @@ const ModalCart = (props) => {
 
   const proceedToCheckout = () => {
     navigate("/signin?redirect=/shipping");
+    exitModalCart();
+  };
+
+  const exitModalCart = () => {
     props.toggleCart((prev) => !prev);
   };
 
@@ -39,26 +43,29 @@ const ModalCart = (props) => {
     <main className='flex flex-col sm:items-end h-screen'>
       <section
         className='bg-transparent w-full flex-1 fixed inset-0'
-        onClick={() => props.toggleCart((prev) => !prev)}
+        onClick={exitModalCart}
       ></section>
       <Helmet>
         <title>Cart</title>
       </Helmet>
       {/* Cart items */}
-      <section className='relative flex-1 flex flex-col items-center space-y-2 bg-white overflow-y-auto no-scrollbar z-40 md:w-1/2 lg:w-1/3 xl:w-1/3 2xl:w-1/4'>
+      <section className='relative flex-1 flex flex-col items-center space-y-2 bg-white overflow-y-auto no-scrollbar z-40 sm:w-1/2 lg:w-1/3 xl:w-1/3 2xl:w-1/4'>
         <h1 className='text-2xl p-4 flex items-center justify-between bg-white sticky top-0 font-light z-50 w-full'>
           <span>
             Cart <span className='font-normal'>({cart.length})</span>
           </span>
-          <CloseIcon
-            onClick={() => props.toggleCart((prev) => !prev)}
-            className='cursor-pointer'
-          />
+          <CloseIcon onClick={exitModalCart} className='cursor-pointer' />
         </h1>
         <section className='relative'>
           {cart.length <= 0 ? (
-            <div className='px-14'>
-              Shopping cart empty. <Link to='/' className='underline text-gray-800'>Go shopping</Link>
+            <div className=''>
+              Shopping cart empty.{" "}
+              <span
+                className='underline text-gray-800 cursor-pointer'
+                onClick={exitModalCart}
+              >
+                Go shopping
+              </span>
             </div>
           ) : (
             <>
@@ -80,7 +87,7 @@ const ModalCart = (props) => {
                       <div>
                         <Link
                           to={`/product/${item._id}`}
-                          onClick={() => props.toggleCart((prev) => !prev)}
+                          onClick={exitModalCart}
                         >
                           <p className='font-medium'>{`${item.color} ${item.name}`}</p>
                         </Link>
