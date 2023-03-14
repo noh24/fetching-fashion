@@ -27,7 +27,7 @@ const Header = (props) => {
   };
 
   return (
-    <nav className='w-full flex items-center justify-between py-3 sm:py-4 px-2 font-medium sticky top-0 z-50 bg-white border-b border-gray-200 mb-10 text-gray-800'>
+    <nav className='w-full flex items-center justify-between py-3 sm:py-4 lg:px-4 px-2 font-medium sticky top-0 z-50 bg-white border-b border-gray-200 mb-10 text-gray-800'>
       <div className=''>
         <Menu as='div' className='relative inline-block text-left z-10'>
           <div>
