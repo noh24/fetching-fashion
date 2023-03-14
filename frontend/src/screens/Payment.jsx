@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import getError from "../utility/getError";
 import { Helmet } from "react-helmet-async";
+import Shipping from "./Shipping";
 
 const Payment = () => {
   const navigate = useNavigate();
@@ -80,10 +81,11 @@ const Payment = () => {
   };
 
   return (
-    <main>
+    <main className='lg:grid lg:grid-cols-2 lg:gap-4 grid-cols-1 px-2 '>
       <Helmet>
         <title>Payment</title>
       </Helmet>
+      <Shipping />
       <section>
         {/* shipping address */}
         <article>
@@ -102,16 +104,24 @@ const Payment = () => {
         </article>
         {/* CART */}
         <article>
-          <h1>Cart</h1>
+          <h1 className='text-2xl'>Cart</h1>
           <div>
             {cart.map((item) => (
-              <div key={item._id}>
-                <img src={item.images[0]} alt={`${item.color} ${item.name}`} />
-                <Link to={`/product/${item._id}`}>
-                  {item.color} {item.name}
-                </Link>
-                <p>{item.quantity}</p>
-                <p>${item.price}</p>
+              <div key={item._id} className='flex gap-4 items-center'>
+                <img
+                  className='w-24'
+                  src={item.images[0]}
+                  alt={`${item.color} ${item.name}`}
+                />
+                <div className='flex-1 flex flex-col'>
+                  <Link to={`/product/${item._id}`}>
+                    {item.color} {item.name}
+                  </Link>
+                  <div className='flex gap-2'>
+                    <p>({item.quantity})</p>
+                    <p>${(item.quantity * item.price).toFixed(2)}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -121,7 +131,7 @@ const Payment = () => {
         </article>
       </section>
       {/* Check out PAYMENTS */}
-      <section>
+      <section className='order-2'>
         <article>
           <h1>Order Summary</h1>
           <div>
