@@ -45,8 +45,8 @@ const ModalCart = (props) => {
         <title>Cart</title>
       </Helmet>
       {/* Cart items */}
-      <section className='relative flex-1 flex flex-col space-y-2 bg-white overflow-y-auto no-scrollbar z-50'>
-        <h1 className='text-2xl p-4 flex items-center justify-between bg-white sticky top-0 font-light'>
+      <section className='relative flex-1 flex flex-col items-center space-y-2 bg-white overflow-y-auto no-scrollbar z-40 md:w-1/2 lg:w-1/3 xl:w-1/3 2xl:w-1/4'>
+        <h1 className='text-2xl p-4 flex items-center justify-between bg-white sticky top-0 font-light z-50 w-full'>
           <span>
             Cart <span className='font-normal'>({cart.length})</span>
           </span>
@@ -57,12 +57,12 @@ const ModalCart = (props) => {
         </h1>
         <section className='relative'>
           {cart.length <= 0 ? (
-            <div className=''>
-              Shopping cart empty. <Link to='/'>Go shopping</Link>
+            <div className='px-14'>
+              Shopping cart empty. <Link to='/' className='underline text-gray-800'>Go shopping</Link>
             </div>
           ) : (
             <>
-              <section className='mb-6 flex flex-col items-center space-y-8 flex-1 opacity-100 px-2 sm:px-14'>
+              <section className='mb-6 flex flex-col items-center space-y-8 flex-1 opacity-100 px-2 sm:px-8'>
                 {cart.map((item) => (
                   <article
                     key={item._id}
