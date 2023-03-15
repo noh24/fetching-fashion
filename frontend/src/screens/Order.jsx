@@ -36,14 +36,14 @@ const Order = () => {
   ) : error ? (
     <div>{error}</div>
   ) : (
-    <main>
+    <main className='lg:grid lg:grid-cols-6 lg:gap-8 px-2 space-y-4 lg:space-y-12'>
       <Helmet>
         <title>Order No. {params.id}</title>
       </Helmet>
-      <h1>Order No. {params.id}</h1>
-      <section>
-        <article>
-          <h1>Shipping Address</h1>
+      <section className='space-y-4 lg:col-span-3'>
+        <h1 className='text-2xl font-light'>Order No. {params.id}</h1>
+        <article className='space-y-2'>
+          <h2 className='text-lg font-medium'>Shipping Address</h2>
           <p>
             <strong>Name: </strong> {order.shippingAddress.fullName}
           </p>
@@ -62,49 +62,9 @@ const Order = () => {
               <strong>Delivery Status:</strong> Not delievered
             </div>
           )}
-        </article>
-
-        <article>
-          <h1>Order Items</h1>
-          <div>
-            {order.orderItems.map((item) => (
-              <div key={item._id}>
-                <img src={item.images[0]} alt={`${item.color} ${item.name}`} />
-                <Link to={`/product/${item._id}`}>
-                  {item.color} {item.name}
-                </Link>
-                <p>{item.quantity}</p>
-                <p>${item.price}</p>
-              </div>
-            ))}
-          </div>
-        </article>
-      </section>
-
-      <section>
-        <article>
-          <h1>Order Summary</h1>
-          <div>
-            <p>Items</p>
-            <p>${order.price.items.toFixed(2)}</p>
-          </div>
-          <div>
-            <p>Shipping</p>
-            <p>${order.price.shipping.toFixed(2)}</p>
-          </div>
-          <div>
-            <p>Tax</p>
-            <p>${order.price.tax.toFixed(2)}</p>
-          </div>
-          <div>
-            <p>
-              <strong>Order Total</strong>
-            </p>
-            <p>${order.price.total.toFixed(2)}</p>
-          </div>
           {order.isPaid ? (
             <div>
-              <strong>Paid at:</strong>{" "}
+              <strong>Paid on:</strong>{" "}
               {new Date(order.paidAt).toLocaleString()}
             </div>
           ) : (
@@ -112,6 +72,52 @@ const Order = () => {
               <strong>Payment Status:</strong> Not paid
             </div>
           )}
+        </article>
+
+        <article>
+          <h1 className='text-lg font-medium'>Order Items</h1>
+          <div className='space-y-4'>
+            {order.orderItems.map((item) => (
+              <div key={item._id} className='flex space-x-4'>
+                <img
+                  className='w-24 object-cover'
+                  src={item.images[0]}
+                  alt={`${item.color} ${item.name}`}
+                />
+                <div className='flex flex-col'>
+                  <Link to={`/product/${item._id}`} className='font-medium'>
+                    {item.color} {item.name}
+                  </Link>
+                  <p>({item.quantity ? item.quantity : 1})</p>
+                  <p>${item.price}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </article>
+      </section>
+
+      <section className='lg:col-span-2 space-y-2'>
+        <h1 className='text-lg font-medium'>Order Summary</h1>
+        <article className='space-y-2 text-gray-800'>
+          <div className='grid grid-cols-3'>
+            <p>Items</p>
+            <p className='col-start-3'>${order.price.items.toFixed(2)}</p>
+          </div>
+          <div className='grid grid-cols-3'>
+            <p>Shipping</p>
+            <p className='col-start-3'>${order.price.shipping.toFixed(2)}</p>
+          </div>
+          <div className='grid grid-cols-3'>
+            <p>Tax</p>
+            <p className='col-start-3'>${order.price.tax.toFixed(2)}</p>
+          </div>
+          <div className='grid grid-cols-3 border-t-2 pt-2'>
+            <p className='text-red-500'>
+              <strong>Order Total</strong>
+            </p>
+            <p className='col-start-3'>${order.price.total.toFixed(2)}</p>
+          </div>
         </article>
       </section>
     </main>
