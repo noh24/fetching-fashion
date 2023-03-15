@@ -12,9 +12,13 @@ import { toast } from "react-toastify";
 import { nanoid } from "nanoid";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
+import { ToggleCartStore } from "../utility/toggleCartStore";
 
 const SingleWinterApparel = () => {
   const params = useParams();
+  const {
+    toggleCart: [toggleCart, setToggleCart],
+  } = useContext(ToggleCartStore);
   const { loading, error, products: product, dispatch } = useProductReducer();
 
   const { state, dispatch: storeDispatch } = useContext(Store);
@@ -49,6 +53,7 @@ const SingleWinterApparel = () => {
         throw new Error(`${itemExist.name || product.name} is out of stock.`);
       }
       storeDispatch({ type: "ADD_TO_CART", payload: { ...product, quantity } });
+      setToggleCart(prev => !prev);
     } catch (err) {
       toast.error(getError(err));
     }
@@ -70,11 +75,11 @@ const SingleWinterApparel = () => {
               {product.images.map((item, index) => (
                 <div
                   key={nanoid()}
-                  className={
-                    `${index === images
+                  className={`${
+                    index === images
                       ? `h-full w-full object-cover md:absolute flex`
-                      : "hidden"}`
-                  }
+                      : "hidden"
+                  }`}
                 >
                   <img src={item} alt={product.name} />
                 </div>
