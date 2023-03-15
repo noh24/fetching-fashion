@@ -7,10 +7,15 @@ import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import PersonIcon from "@mui/icons-material/Person";
 import MenuIcon from "@mui/icons-material/Menu";
+import { ToggleCartStore } from "../utility/toggleCartStore";
 
-const Header = (props) => {
+const Header = () => {
   const navigate = useNavigate();
   const { state, dispatch: storeDispatch } = useContext(Store);
+  const {
+    toggleCart: [toggleCart, setToggleCart],
+  } = useContext(ToggleCartStore);
+
   const { cart, userInfo } = state;
 
   const signOutHandler = () => {
@@ -24,6 +29,10 @@ const Header = (props) => {
   };
   const routeTo = (path) => {
     navigate(path);
+  };
+
+  const toggleModalCart = () => {
+    setToggleCart((prev) => !prev);
   };
 
   return (
@@ -81,7 +90,7 @@ const Header = (props) => {
       <section className='flex justify-center items-center gap-2 sm:gap-3 relative'>
         <div className='relative'>
           {/* <NavLink to='/cart'> */}
-          <NavLink onClick={() => props.toggleCart(prev => !prev)}>
+          <NavLink onClick={toggleModalCart}>
             <ShoppingBagOutlinedIcon fontSize='medium' />
           </NavLink>
           {cart.length > 0 && (

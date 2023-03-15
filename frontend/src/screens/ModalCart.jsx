@@ -8,9 +8,13 @@ import { Helmet } from "react-helmet-async";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CloseIcon from "@mui/icons-material/Close";
+import { ToggleCartStore } from "../utility/toggleCartStore";
 
 const ModalCart = (props) => {
   const navigate = useNavigate();
+  const {
+    toggleCart: [toggleCart, setToggleCart],
+  } = useContext(ToggleCartStore);
   const { state, dispatch: storeDispatch } = useContext(Store);
   const { cart } = state;
 
@@ -31,12 +35,12 @@ const ModalCart = (props) => {
   };
 
   const proceedToCheckout = () => {
-    navigate("/signin?redirect=/shipping");
+    navigate("/signin?redirect=/payment");
     exitModalCart();
   };
 
   const exitModalCart = () => {
-    props.toggleCart((prev) => !prev);
+    setToggleCart((prev) => !prev);
   };
 
   return (
@@ -56,100 +60,84 @@ const ModalCart = (props) => {
           </span>
           <CloseIcon onClick={exitModalCart} className='cursor-pointer' />
         </h1>
-        <section className='relative'>
-          {cart.length <= 0 ? (
-            <div className=''>
-              Shopping cart empty.{" "}
-              <span
-                className='underline text-gray-800 cursor-pointer'
-                onClick={exitModalCart}
+        {cart.length <= 0 ? (
+          <div className=''>
+            Shopping cart empty.{" "}
+            <span
+              className='underline text-gray-800 cursor-pointer'
+              onClick={exitModalCart}
+            >
+              Go shopping
+            </span>
+          </div>
+        ) : (
+          <section className='mb-6 flex flex-col items-center space-y-8 flex-1 opacity-100 px-2 sm:px-8'>
+            {cart.map((item) => (
+              <article
+                key={item._id}
+                className='flex grid-cols-3 items-center justify-between w-full space-x-2'
               >
-                Go shopping
-              </span>
-            </div>
-          ) : (
-            <>
-              <section className='mb-6 flex flex-col items-center space-y-8 flex-1 opacity-100 px-2 sm:px-8'>
-                {cart.map((item) => (
-                  <article
-                    key={item._id}
-                    className='flex grid-cols-3 items-center justify-between w-full space-x-2'
-                  >
-                    <div className=''>
-                      <img
-                        className='w-24 object-cover'
-                        src={item.images[0]}
-                        alt={item.name}
-                      />
-                    </div>
-
-                    <div className='flex-1 flex flex-col justify-between space-y-1'>
-                      <div>
-                        <Link
-                          to={`/product/${item._id}`}
-                          onClick={exitModalCart}
-                        >
-                          <p className='font-medium'>{`${item.color} ${item.name}`}</p>
-                        </Link>
-                      </div>
-                      <p className='text-gray-800'>${item.price}</p>
-
-                      <div className='flex justify-between pr-4'>
-                        <div className='space-x-2'>
-                          <button
-                            disabled={item.quantity <= 1}
-                            onClick={() =>
-                              updatedCartItem(item, item.quantity - 1)
-                            }
-                          >
-                            <RemoveCircleOutlineIcon
-                              className=''
-                              fontSize='small'
-                            />
-                          </button>
-                          <span>{item.quantity}</span>
-                          <button
-                            disabled={item.quantity >= item.countInStock}
-                            onClick={() =>
-                              updatedCartItem(item, item.quantity + 1)
-                            }
-                          >
-                            <AddCircleOutlineIcon fontSize='small' />
-                          </button>
-                        </div>
-                        <button
-                          className='text-xs border-b border-gray-600 font-light'
-                          onClick={() => removeCartItems(item)}
-                        >
-                          Remove
-                        </button>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </section>
-
-              <section className='sticky bottom-0 bg-white p-4 flex flex-col justify-around items-center space-y-4 py-4'>
-                <h1 className='text-2xl'>
-                  Subtotal ({cart.reduce((acc, curr) => acc + curr.quantity, 0)}{" "}
-                  Items): $
-                  {cart.reduce(
-                    (acc, curr) => acc + curr.price * curr.quantity,
-                    0
-                  )}{" "}
-                </h1>
-                <div className='self-center'>
-                  <button
-                    className='bg-gray-800 px-12 py-3 text-sm rounded-full text-white'
-                    disabled={cart.length <= 0}
-                    onClick={proceedToCheckout}
-                  >
-                    Proceed To Checkout
-                  </button>
+                <div className=''>
+                  <img
+                    className='w-24 object-cover'
+                    src={item.images[0]}
+                    alt={item.name}
+                  />
                 </div>
-              </section>
-            </>
-          )}
+
+                <div className='flex-1 flex flex-col justify-between space-y-1'>
+                  <div>
+                    <Link to={`/product/${item._id}`} onClick={exitModalCart}>
+                      <p className='font-medium'>{`${item.color} ${item.name}`}</p>
+                    </Link>
+                  </div>
+                  <p className='text-gray-800'>${item.price}</p>
+
+                  <div className='flex justify-between pr-4'>
+                    <div className='flex gap-4'>
+                      <button
+                        disabled={item.quantity <= 1}
+                        className='disabled:opacity-50'
+                        onClick={() => updatedCartItem(item, item.quantity - 1)}
+                      >
+                        <RemoveCircleOutlineIcon fontSize='small' />
+                      </button>
+                      <div>{item.quantity}</div>
+                      <button
+                        disabled={item.quantity >= item.countInStock}
+                        className='disabled:opacity-50'
+                        onClick={() => updatedCartItem(item, item.quantity + 1)}
+                      >
+                        <AddCircleOutlineIcon fontSize='small' />
+                      </button>
+                    </div>
+                    <button
+                      className='text-xs border-b border-gray-600 font-light'
+                      onClick={() => removeCartItems(item)}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </section>
+        )}
+        <section className='sticky w-full bottom-0 bg-white p-4 flex flex-col justify-around items-center space-y-4 py-4'>
+          <h1 className='text-2xl'>
+            Subtotal ({cart.reduce((acc, curr) => acc + curr.quantity, 0)}{" "}
+            Items): $
+            {cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0)}{" "}
+          </h1>
+          <div className='self-center'>
+            <button
+              className='bg-gray-800 px-12 py-3 text-sm rounded-full text-white'
+              disabled={cart.length <= 0}
+              onClick={proceedToCheckout}
+            >
+              Proceed To Checkout
+            </button>
+          </div>
         </section>
       </section>
     </main>

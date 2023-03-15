@@ -5,8 +5,12 @@ import { toast } from "react-toastify";
 import getError from "./../utility/getError";
 import axios from "axios";
 import Rating from "./Rating";
+import { ToggleCartStore } from "./../utility/toggleCartStore";
 
 const Product = (props) => {
+  const {
+    toggleCart: [toggleCart, setToggleCart],
+  } = useContext(ToggleCartStore);
   const { product } = props;
   const { state, dispatch: storeDispatch } = useContext(Store);
 
@@ -19,6 +23,7 @@ const Product = (props) => {
         throw new Error(`${itemExist.name || product.name} is out of stock.`);
       }
       storeDispatch({ type: "ADD_TO_CART", payload: { ...product, quantity } });
+      setToggleCart(prev => !prev);
     } catch (err) {
       toast.error(getError(err));
     }
