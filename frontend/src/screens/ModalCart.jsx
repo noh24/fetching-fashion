@@ -13,7 +13,7 @@ import { ToggleCartStore } from "../Utility/toggleCartStore";
 const ModalCart = (props) => {
   const navigate = useNavigate();
   const {
-    toggleCart: [toggleCart, setToggleCart],
+    toggleCart: [, setToggleCart],
   } = useContext(ToggleCartStore);
   const { state, dispatch: storeDispatch } = useContext(Store);
   const { cart } = state;

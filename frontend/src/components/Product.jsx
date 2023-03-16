@@ -9,7 +9,7 @@ import { ToggleCartStore } from "../Utility/toggleCartStore.js";
 
 const Product = (props) => {
   const {
-    toggleCart: [toggleCart, setToggleCart],
+    toggleCart: [, setToggleCart],
   } = useContext(ToggleCartStore);
   const { product } = props;
   const { state, dispatch: storeDispatch } = useContext(Store);

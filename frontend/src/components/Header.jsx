@@ -13,7 +13,7 @@ const Header = () => {
   const navigate = useNavigate();
   const { state, dispatch: storeDispatch } = useContext(Store);
   const {
-    toggleCart: [toggleCart, setToggleCart],
+    toggleCart: [, setToggleCart],
   } = useContext(ToggleCartStore);
 
   const { cart, userInfo } = state;

@@ -17,7 +17,7 @@ import { ToggleCartStore } from "../Utility/toggleCartStore";
 const SingleWinterApparel = () => {
   const params = useParams();
   const {
-    toggleCart: [toggleCart, setToggleCart],
+    toggleCart: [, setToggleCart],
   } = useContext(ToggleCartStore);
   const { loading, error, products: product, dispatch } = useProductReducer();
 
