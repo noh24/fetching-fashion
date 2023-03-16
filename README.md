@@ -5,29 +5,66 @@
     <p align=center>Your Furry Partner Deserves The Best</p>
 </p>
 
-## Technologies Used
-- JavaScript 
-- React (Create React App)
+## Getting Started
+
+To run this project on your local machine, you'll need to have the following installed:
+
+- Node.js - you can download and install Node.js from https://nodejs.org
+- Git - you can download and install Git from https://git-scm.com
+- An IDE - preferably Visual Studio Code, which you can download and install from https://code.visualstudio.com/
+
+## Instructions
+
+1. Clone the repository using Git:
+
+```
+git clone https://github.com/noh24/fetching-fashion.git
+```
+
+2. Install dependencies:
+
+```
+cd backend
+npm install
+
+cd ../frontend
+npm install
+```
+
+3. Start the development server:
+
+```
+cd backend
+npm start
+
+cd ../frontend
+npm start
+```
+
+## Running the tests
+
+To run the automated tests for the frontend, run the following command:
+
+```
+cd frontend
+npm run test
+```
+
+## Built With
+
+This project was built using the following technologies:
+
+- JavaScript
+- React
 - Node.js
-- express
+- Express
 - MongoDB
-- Paypal API
+- PayPal API
 - Heroku
-- bcryptjs
-- axios
-- react-toastify
-- tailwind css
-
-## Instructions 
-
-<!-- - Visit [deployed site]() -->
-- Clone this project using your terminal
-#### Root Folder
-- Run `cd backend && npm i && npm run start` to start the backend
-### Open another terminal and in the root folder:
-- Run  `cd frontend && npm i && npm run start` to start the frontend
+- Tailwind CSS
 
 ## Known bugs
+
 - None
 
 ## Planning and Research Log
@@ -39,7 +76,11 @@
 - Learning about MongoDb x3
 - Learning about Mongoose and Express and Node x5
 - Learning about Express Router / API end points / backend user verification with express x3
-- Learning about paypal API/sandbox/creating endpoints/checkout  x3
+- Learning about paypal API/sandbox/creating endpoints/checkout x3
+
+## Acknowledgements
+
+This project was inspired by and uses design images from the Shark Paw website.
 
 ## License
 
