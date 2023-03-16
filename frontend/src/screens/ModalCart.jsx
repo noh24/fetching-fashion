@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CloseIcon from "@mui/icons-material/Close";
-import { ToggleCartStore } from "../utility/toggleCartStore";
+import { ToggleCartStore } from "./../utility/toggleCartStore";
 
 const ModalCart = (props) => {
   const navigate = useNavigate();

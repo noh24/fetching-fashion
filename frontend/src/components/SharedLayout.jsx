@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ModalCart from "../screens/ModalCart";
 import { Transition } from "@headlessui/react";
-import { ToggleCartStore } from "../utility/toggleCartStore";
+import { ToggleCartStore } from "./../utility/toggleCartStore";
 
 const SharedLayout = () => {
   const {

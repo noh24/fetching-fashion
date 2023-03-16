@@ -7,7 +7,7 @@ import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import PersonIcon from "@mui/icons-material/Person";
 import MenuIcon from "@mui/icons-material/Menu";
-import { ToggleCartStore } from "../utility/toggleCartStore";
+import { ToggleCartStore } from "./../utility/toggleCartStore";
 
 const Header = () => {
   const navigate = useNavigate();

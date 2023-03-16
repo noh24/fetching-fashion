@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 import { nanoid } from "nanoid";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
-import { ToggleCartStore } from "../utility/toggleCartStore";
+import { ToggleCartStore } from "./../utility/toggleCartStore";
 
 const SingleWinterApparel = () => {
   const params = useParams();
