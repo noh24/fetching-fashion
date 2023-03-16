@@ -69,14 +69,10 @@ This project was built using the following technologies:
 
 ## Planning and Research Log
 
-- Learning Redux
-- Following tutorial on redux toolkit (still working x5) https://www.youtube.com/watch?v=NqzdVN2tyvQ&t=10380s&ab_channel=DaveGray
-- Learning about CMS and HEADLESS CMS (Content Management System)
-- Learning about Strapi (Headless CMS)
-- Learning about MongoDb x3
-- Learning about Mongoose and Express and Node x5
-- Learning about Express Router / API end points / backend user verification with express x3
-- Learning about paypal API/sandbox/creating endpoints/checkout x3
+- I am dedicating time to learn about MongoDb, a popular NoSQL database management system.
+- To complement my understanding of MongoDb, I am also learning about Mongoose, Express, and Node, which are commonly used in conjunction with MongoDb.
+- I am also delving into the world of API endpoints, specifically using Express Router, and exploring backend user verification with Express. 
+- Finally, I am exploring the PayPal API, including creating endpoints, testing with the sandbox, and implementing checkout functionality.
 
 ## Acknowledgements
 
