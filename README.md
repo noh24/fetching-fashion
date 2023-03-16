@@ -24,7 +24,8 @@
 - Clone this project using your terminal
 #### Root Folder
 - Run `cd backend && npm i && npm run start` to start the backend
-- Run  `cd ../frontend && npm i & npm run start` to start the frontend
+### Open another terminal and in the root folder:
+- Run  `cd frontend && npm i && npm run start` to start the frontend
 
 ## Known bugs
 - None
