@@ -9,7 +9,7 @@ import path from "path";
 
 dotenv.config();
 try {
-  await mongoose.connect(process.env.MONGODB_URI);
+  await mongoose.connect(process.env.MONGODB_URI, {dbName: 'fetching-fashion'});
   console.log("connected to db");
 } catch (err) {
   console.log(err.message);
