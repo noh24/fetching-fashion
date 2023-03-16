@@ -36,19 +36,19 @@ const Order = () => {
   ) : error ? (
     <div>{error}</div>
   ) : (
-    <main className='lg:grid lg:grid-cols-6 lg:gap-8 px-2 space-y-4 lg:space-y-12'>
+    <main className='lg:grid lg:grid-cols-5 lg:gap-20 px-2 space-y-12 lg:space-y-20 mb-12'>
       <Helmet>
         <title>Order No. {params.id}</title>
       </Helmet>
-      <section className='space-y-4 lg:col-span-3'>
+      <section className='space-y-12 lg:col-span-3'>
         <h1 className='text-2xl font-light'>Order No. {params.id}</h1>
         <article className='space-y-2'>
-          <h2 className='text-lg font-medium'>Shipping Address</h2>
+          <h2 className='text-2xl text-gray-800'>Shipping Address</h2>
           <p>
-            <strong>Name: </strong> {order.shippingAddress.fullName}
+            {order.shippingAddress.fullName}
           </p>
           <div>
-            <strong>Address: </strong> {order.shippingAddress.address},{" "}
+             {order.shippingAddress.address},{" "}
             {order.shippingAddress.city} {order.shippingAddress.state},{" "}
             {order.shippingAddress.postalCode} {order.shippingAddress.country}
           </div>
@@ -74,8 +74,8 @@ const Order = () => {
           )}
         </article>
 
-        <article>
-          <h1 className='text-lg font-medium'>Order Items</h1>
+        <article className='space-y-4'>
+          <h1 className='text-2xl text-gray-800'>Order Items</h1>
           <div className='space-y-4'>
             {order.orderItems.map((item) => (
               <div key={item._id} className='flex space-x-4'>
@@ -98,8 +98,8 @@ const Order = () => {
       </section>
 
       <section className='lg:col-span-2 space-y-2'>
-        <h1 className='text-lg font-medium'>Order Summary</h1>
-        <article className='space-y-2 text-gray-800'>
+        <h1 className='text-xl text-gray-800 font-medium'>Order Summary</h1>
+        <article className='space-y-2'>
           <div className='grid grid-cols-3'>
             <p>Items</p>
             <p className='col-start-3'>${order.price.items.toFixed(2)}</p>
