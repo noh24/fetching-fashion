@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import useProductReducer from "../hooks/useProductReducer";
 import Product from "../components/Product";
-import getError from "../utility/getError";
+import getError from "../Utility/getError";
 
 const WinterApparel = () => {
   const { loading, error, products, dispatch } = useProductReducer();

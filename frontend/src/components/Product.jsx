@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Store } from "../Store";
 import { toast } from "react-toastify";
-import getError from "./../utility/getError";
+import getError from "../Utility/getError";
 import axios from "axios";
 import Rating from "./Rating";
-import { ToggleCartStore } from "./../utility/toggleCartStore";
+import { ToggleCartStore } from "../Utility/toggleCartStore.js";
 
 const Product = (props) => {
   const {

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import useProductReducer from "../hooks/useProductReducer";
 import { useParams } from "react-router-dom";
-import getError from "../utility/getError";
+import getError from "../Utility/getError";
 import { Helmet } from "react-helmet-async";
 import SizeTable from "../components/SizeTable";
 import SizeGuide from "../components/SizeGuide";
@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 import { nanoid } from "nanoid";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
-import { ToggleCartStore } from "./../utility/toggleCartStore";
+import { ToggleCartStore } from "../Utility/toggleCartStore";
 
 const SingleWinterApparel = () => {
   const params = useParams();

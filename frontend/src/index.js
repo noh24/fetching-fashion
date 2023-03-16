@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { HelmetProvider } from "react-helmet-async";
 import { StoreProvider } from "./Store";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-import { ToggleCartStoreContext } from "./utility/toggleCartStore";
+import { ToggleCartStoreContext } from "./Utility/toggleCartStore.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -4,7 +4,7 @@ import { Store } from "../Store";
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import { toast } from "react-toastify";
 import axios from "axios";
-import getError from "../utility/getError";
+import getError from "../Utility/getError";
 import { Helmet } from "react-helmet-async";
 import Shipping from "./Shipping";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";

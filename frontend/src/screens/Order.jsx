@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Store } from "../Store";
-import getError from "../utility/getError";
+import getError from "../Utility/getError";
 
 const Order = () => {
   const [loading, setLoading] = useState(true);

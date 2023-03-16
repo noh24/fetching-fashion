@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Product from "./Product";
 import useProductReducer from "../hooks/useProductReducer";
 import axios from "axios";
-import getError from "../utility/getError";
+import getError from "../Utility/getError";
 import { Link } from "react-router-dom";
 
 const FeaturedHomeSection = () => {

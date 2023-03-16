@@ -3,12 +3,12 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Store } from "../Store";
-import getError from "../utility/getError";
+import getError from "../Utility/getError";
 import { Helmet } from "react-helmet-async";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CloseIcon from "@mui/icons-material/Close";
-import { ToggleCartStore } from "./../utility/toggleCartStore";
+import { ToggleCartStore } from "../Utility/toggleCartStore";
 
 const ModalCart = (props) => {
   const navigate = useNavigate();
