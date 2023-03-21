@@ -65,7 +65,7 @@ This project was built using the following technologies:
 
 ## Known bugs
 
-- None
+- The slideshow in the home page is not completely responsive to all screen sizes
 
 ## Planning and Research Log
 
