@@ -5,6 +5,12 @@
     <p align=center>Your Furry Partner Deserves The Best</p>
 </p>
 
+## Introduction 
+Welcome to our online store for dog lovers! This ecommerce website is designed specifically for those who are passionate about their furry friends and want to provide them with the best dog clothes available. Please note that this website is created for learning purposes only and is not a real website where you can purchase dog clothes. All transactions are conducted using the PayPal Sandbox, which is a testing environment that does not actually charge your credit card.
+
+## Live Website
+[Click here to visit our live website](https://fetching-fashion.herokuapp.com/)
+
 ## Getting Started
 
 To run this project on your local machine, you'll need to have the following installed:
@@ -14,6 +20,7 @@ To run this project on your local machine, you'll need to have the following ins
 - An IDE - preferably Visual Studio Code, which you can download and install from https://code.visualstudio.com/
 - MongoDB (Community Server) from https://www.mongodb.com/try/download/community
 - PayPal Developer Sandbox Account from [here](https://www.paypal.com/signin?returnUri=https%3A%2F%2Fdeveloper.paypal.com%2Fdeveloper%2Fapplications&intent=developer&ctxId=uldc1d9feecfe54840970a4988484c045d)
+
 ## Instructions
 
 1. Clone the repository using Git:
