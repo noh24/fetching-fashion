@@ -42,6 +42,10 @@ const ModalCart = (props) => {
   const exitModalCart = () => {
     setToggleCart((prev) => !prev);
   };
+  const goShoppingLink = () => {
+    setToggleCart((prev) => !prev);
+    navigate("/");
+  };
 
   return (
     <main className='flex flex-col sm:items-end h-screen'>
@@ -65,7 +69,7 @@ const ModalCart = (props) => {
             Shopping cart empty.{" "}
             <span
               className='underline text-gray-800 cursor-pointer'
-              onClick={exitModalCart}
+              onClick={goShoppingLink}
             >
               Go shopping
             </span>
