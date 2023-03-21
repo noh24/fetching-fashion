@@ -28,18 +28,31 @@ const Home = () => {
       <Helmet>
         <title>Fetching Fashion</title>
       </Helmet>
-      <section className='relative overflow-hidden flex-nowrap flex'>
-        {slideShow.map((slide) => (
-          <img
-            className='min-w-full sm:h-screen object-cover w-full transition duration-1000 flex items-center justify-center ease-in'
-            style={{ transform: `translate(-${currentSlide * 100}%)` }}
-            src={slide}
-            alt='dog wearing clothes'
-            key={slide}
-          ></img>
-        ))}
+      <section className='relative overflow-hidden flex-nowrap flex flex-col'>
+        <div className='xl:flex xl:w-[60vw] xl:h-[60vh] hidden'>
+          {slideShow.map((slide) => (
+            <img
+              className='object-cover w-full transition duration-1500 flex items-center justify-center ease-in'
+              style={{ transform: `translate(-${currentSlide * 60}vw)` }}
+              src={slide}
+              alt='dog wearing clothes'
+              key={slide}
+            ></img>
+          ))}
+        </div>
+        <div className='flex xl:hidden'>
+          {slideShow.map((slide) => (
+            <img
+              className='object-cover w-full transition duration-1000 flex items-center justify-center ease-in'
+              style={{ transform: `translate(-${currentSlide * 100}%)` }}
+              src={slide}
+              alt='dog wearing clothes'
+              key={slide}
+            ></img>
+          ))}
+        </div>
       </section>
-      <FeaturedHomeSection/>
+      <FeaturedHomeSection />
     </main>
   );
 };
