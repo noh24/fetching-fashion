@@ -10,27 +10,30 @@ import Order from "./screens/Order";
 import SignUp from "./screens/SignUp";
 import OrderHistory from "./screens/OrderHistory";
 import Profile from "./screens/Profile";
+import ScrollToTop from "./Utility/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<SharedLayout />}>
-          <Route index element={<Home />}></Route>
-          <Route
-            path='/products/winter-apparel'
-            element={<WinterApparel />}
-          ></Route>
-          <Route path='/product/:id' element={<SingleWinterApparel />} />
-          <Route path='/signin' element={<SignIn />} />
-          <Route path='/signup' element={<SignUp />} />
-          <Route path='/shipping' element={<Shipping />} />
-          <Route path='/payment' element={<Payment />} />
-          <Route path='/order/:id' element={<Order />} />
-          <Route path='/orderhistory' element={<OrderHistory />} />
-          <Route path='/profile' element={<Profile />} />
-        </Route>
-      </Routes>
+      <ScrollToTop>
+        <Routes>
+          <Route path='/' element={<SharedLayout />}>
+            <Route index element={<Home />}></Route>
+            <Route
+              path='/products/winter-apparel'
+              element={<WinterApparel />}
+            ></Route>
+            <Route path='/product/:id' element={<SingleWinterApparel />} />
+            <Route path='/signin' element={<SignIn />} />
+            <Route path='/signup' element={<SignUp />} />
+            <Route path='/shipping' element={<Shipping />} />
+            <Route path='/payment' element={<Payment />} />
+            <Route path='/order/:id' element={<Order />} />
+            <Route path='/orderhistory' element={<OrderHistory />} />
+            <Route path='/profile' element={<Profile />} />
+          </Route>
+        </Routes>
+      </ScrollToTop>
     </BrowserRouter>
   );
 }
