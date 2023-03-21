@@ -33,6 +33,7 @@ PAYPAL_CLIENT_ID=your_paypal_client_id
  * your_mongodb_uri with your MongoDB connection string
  * your_paypal_client_id with your PayPal client ID.   
 
+  
 3. Install dependencies:
 
 ```
@@ -52,6 +53,11 @@ npm start
 cd ../frontend
 npm start
 ```
+
+5. Seed Data:
+Go to http://localhost:1111/api/seed to seed the data.
+
+6. Enjoy your shopping! 
 
 ## Running the tests
 
