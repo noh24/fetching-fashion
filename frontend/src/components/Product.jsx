@@ -34,12 +34,12 @@ const Product = (props) => {
       <Link to={`/product/${product._id}`} className='hover:opacity-90'>
         <div className='h-[350px] w-full md:h-[400px] md:w-[400px] overflow-hidden relative mb-4'>
           <img
-            className='h-full w-full object-cover z-10 hover:z-0 md:absolute'
+            className='h-full w-full object-cover z-10 hover:z-0 md:absolute transition-all '
             src={product.images[0]}
             alt={`${product.color} ${product.name}`}
           />
           <img
-            className='h-full w-full object-cover hover:z-10 md:absolute'
+            className='h-full w-full object-cover hover:z-10 md:absolute transition-all '
             src={product.images[1]}
             alt={`${product.color} ${product.name}`}
           />
