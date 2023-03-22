@@ -60,7 +60,7 @@ const Footer = () => {
               className='py-2 px-4 border-2 border-gray-300 rounded-full rounded-r-none focus:outline-none'
             />
             <button
-              className='shadow shadow-gray-600 rounded-full rounded-l-none py-2 px-4 bg-gray-800 text-white border-2 border-gray-600 focus:outline-none hover:opacity-80'
+              className='lg:shadow lg:shadow-gray-600 rounded-full rounded-l-none py-2 px-4 bg-gray-800 text-white border-2 border-gray-600 focus:outline-none hover:opacity-80'
               type='submit'
             >
               Subscribe
