@@ -172,6 +172,7 @@ const Payment = () => {
             ) : (
               <PayPalButtons
                 disabled={!shippingAddress.fullName}
+                className='disabled:cursor-not-allowed'
                 createOrder={createOrder}
                 onApprove={onApprove}
                 onError={onError}

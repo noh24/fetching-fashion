@@ -5,6 +5,12 @@
     <p align=center>Your Furry Partner Deserves The Best</p>
 </p>
 
+## Introduction 
+Welcome to our online store for dog lovers! This ecommerce website is designed specifically for those who are passionate about their furry friends and want to provide them with the best dog clothes available. Please note that this website is created for learning purposes only and is not a real website where you can purchase dog clothes. All transactions are conducted using the PayPal Sandbox, which is a testing environment that does not actually charge your credit card.
+
+## Live Website
+[Click here to visit our live website](https://fetching-fashion.herokuapp.com/)
+
 ## Getting Started
 
 To run this project on your local machine, you'll need to have the following installed:
@@ -12,6 +18,8 @@ To run this project on your local machine, you'll need to have the following ins
 - Node.js - you can download and install Node.js from https://nodejs.org
 - Git - you can download and install Git from https://git-scm.com
 - An IDE - preferably Visual Studio Code, which you can download and install from https://code.visualstudio.com/
+- MongoDB (Community Server) from https://www.mongodb.com/try/download/community
+- PayPal Developer Sandbox Account from [here](https://www.paypal.com/signin?returnUri=https%3A%2F%2Fdeveloper.paypal.com%2Fdeveloper%2Fapplications&intent=developer&ctxId=uldc1d9feecfe54840970a4988484c045d)
 
 ## Instructions
 
@@ -20,8 +28,20 @@ To run this project on your local machine, you'll need to have the following ins
 ```
 git clone https://github.com/noh24/fetching-fashion.git
 ```
+2. In the backend subdirectory, create a `.env` file and add:
 
-2. Install dependencies:
+```
+JWT_SECRET=your_super_secret_key
+MONGODB_URI=your_mongodb_uri
+PAYPAL_CLIENT_ID=your_paypal_client_id
+```
+### Replace:
+ * your_super_secret_key with your own secret key for JWT authentication
+ * your_mongodb_uri with your MongoDB connection string
+ * your_paypal_client_id with your PayPal client ID.   
+
+  
+3. Install dependencies:
 
 ```
 cd backend
@@ -31,7 +51,7 @@ cd ../frontend
 npm install
 ```
 
-3. Start the development server:
+4. Start the development server:
 
 ```
 cd backend
@@ -40,6 +60,11 @@ npm start
 cd ../frontend
 npm start
 ```
+
+5. Seed Data:
+Go to http://localhost:1111/api/seed to seed the data.
+
+6. Enjoy your shopping! 
 
 ## Running the tests
 

@@ -42,6 +42,10 @@ const ModalCart = (props) => {
   const exitModalCart = () => {
     setToggleCart((prev) => !prev);
   };
+  const goShoppingLink = () => {
+    setToggleCart((prev) => !prev);
+    navigate("/");
+  };
 
   return (
     <main className='flex flex-col sm:items-end h-screen'>
@@ -54,18 +58,18 @@ const ModalCart = (props) => {
       </Helmet>
       {/* Cart items */}
       <section className='relative flex-1 flex flex-col items-center space-y-2 bg-white overflow-y-auto no-scrollbar z-40 sm:w-1/2 lg:w-1/3 xl:w-1/3 2xl:w-1/4'>
-        <h1 className='text-2xl p-4 flex items-center justify-between bg-white sticky top-0 font-light z-50 w-full'>
+        <h1 className='text-2xl p-4 flex items-end justify-between bg-white sticky top-0 font-light z-50 w-full'>
           <span>
             Cart <span className='font-normal'>({cart.length})</span>
           </span>
           <CloseIcon onClick={exitModalCart} className='cursor-pointer' />
         </h1>
         {cart.length <= 0 ? (
-          <div className=''>
-            Shopping cart empty.{" "}
+          <div className='flex-1 flex items-center gap-1'>
+            Shopping cart empty.
             <span
-              className='underline text-gray-800 cursor-pointer'
-              onClick={exitModalCart}
+              className='underline text-blue-600 cursor-pointer'
+              onClick={goShoppingLink}
             >
               Go shopping
             </span>
@@ -131,7 +135,7 @@ const ModalCart = (props) => {
           </h1>
           <div className='self-center'>
             <button
-              className='bg-gray-800 px-12 py-3 text-sm rounded-full text-white'
+              className='bg-gray-800 px-12 py-3 text-sm rounded-full text-white disabled:opacity-90 disabled:cursor-not-allowed'
               disabled={cart.length <= 0}
               onClick={proceedToCheckout}
             >
