@@ -5,6 +5,7 @@ import axios from "axios";
 import getError from "../Utility/getError";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const OrderHistory = () => {
   const navigate = useNavigate();
@@ -40,7 +41,9 @@ const OrderHistory = () => {
   }, [state.userInfo, navigate]);
 
   return loading ? (
-    <div>Loading...</div>
+    <div>
+      <LoadingSpinner />
+    </div>
   ) : error ? (
     <div>{error}</div>
   ) : (

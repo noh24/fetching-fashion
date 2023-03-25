@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import useProductReducer from "../hooks/useProductReducer";
 import Product from "../components/Product";
 import getError from "../Utility/getError";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const WinterApparel = () => {
   const { loading, error, products, dispatch } = useProductReducer();
@@ -28,7 +29,9 @@ const WinterApparel = () => {
       </Helmet>
       <h1 className='sm:text-2xl text-xl mb-10'>Winter Apparel</h1>
       {loading ? (
-        <div>Loading...</div>
+        <div>
+          <LoadingSpinner />
+        </div>
       ) : error ? (
         <div>{error}</div>
       ) : (
