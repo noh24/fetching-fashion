@@ -4,6 +4,7 @@ import useProductReducer from "../hooks/useProductReducer";
 import axios from "axios";
 import getError from "../Utility/getError";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "./LoadingSpinner";
 
 const FeaturedHomeSection = () => {
   const { loading, error, products, dispatch } = useProductReducer();
@@ -21,19 +22,27 @@ const FeaturedHomeSection = () => {
     fetchData();
   }, [dispatch]);
 
-  return loading ? (
-    <div>Loading...</div>
-  ) : error ? (
-    <div>{error}</div>
-  ) : (
+  return (
     <section className='my-10 sm:my-20 px-2 flex flex-col items-center justify-center'>
-      <Link to={`/products/winter-apparel`}>
-        <h1 className='sm:text-2xl text-xl mb-10 sm:mb-20'>Shop Winter Apparel</h1>
-      </Link>
-      <div className='w-full lg:grid lg:grid-cols-2'>
-          <Product product={products[0]}></Product>
-          <Product product={products[products.length - 1]}></Product>
-      </div>
+      {loading ? (
+        <div>
+          <LoadingSpinner />
+        </div>
+      ) : error ? (
+        <div>{error}</div>
+      ) : (
+        <>
+          <Link to={`/products/winter-apparel`}>
+            <h1 className='sm:text-2xl text-xl mb-10 sm:mb-20'>
+              Shop Winter Apparel
+            </h1>
+          </Link>
+          <div className='w-full lg:grid lg:grid-cols-2'>
+            <Product product={products[0]}></Product>
+            <Product product={products[products.length - 1]}></Product>
+          </div>
+        </>
+      )}
     </section>
   );
 };

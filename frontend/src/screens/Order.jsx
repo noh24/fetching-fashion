@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import LoadingSpinner from "../components/LoadingSpinner";
 import { Store } from "../Store";
 import getError from "../Utility/getError";
 
@@ -32,7 +33,9 @@ const Order = () => {
   }, [params.id, state.userInfo, order._id]);
 
   return loading ? (
-    <div>Loading...</div>
+    <div>
+      <LoadingSpinner />
+    </div>
   ) : error ? (
     <div>{error}</div>
   ) : (
@@ -44,13 +47,11 @@ const Order = () => {
         <h1 className='text-2xl font-light'>Order No. {params.id}</h1>
         <article className='space-y-2'>
           <h2 className='text-2xl text-gray-800'>Shipping Address</h2>
-          <p>
-            {order.shippingAddress.fullName}
-          </p>
+          <p>{order.shippingAddress.fullName}</p>
           <div>
-             {order.shippingAddress.address},{" "}
-            {order.shippingAddress.city} {order.shippingAddress.state},{" "}
-            {order.shippingAddress.postalCode} {order.shippingAddress.country}
+            {order.shippingAddress.address}, {order.shippingAddress.city}{" "}
+            {order.shippingAddress.state}, {order.shippingAddress.postalCode}{" "}
+            {order.shippingAddress.country}
           </div>
           {order.isDelivered ? (
             <div>

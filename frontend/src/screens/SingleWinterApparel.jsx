@@ -13,6 +13,7 @@ import { nanoid } from "nanoid";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import { ToggleCartStore } from "../Utility/toggleCartStore";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const SingleWinterApparel = () => {
   const params = useParams();
@@ -53,7 +54,7 @@ const SingleWinterApparel = () => {
         throw new Error(`${itemExist.name || product.name} is out of stock.`);
       }
       storeDispatch({ type: "ADD_TO_CART", payload: { ...product, quantity } });
-      setToggleCart(prev => !prev);
+      setToggleCart((prev) => !prev);
     } catch (err) {
       toast.error(getError(err));
     }
@@ -62,7 +63,9 @@ const SingleWinterApparel = () => {
   return (
     <main className='px-2 sm:px-4'>
       {loading ? (
-        <div>Loading...</div>
+        <div>
+          <LoadingSpinner />
+        </div>
       ) : error ? (
         <div>{error}</div>
       ) : (

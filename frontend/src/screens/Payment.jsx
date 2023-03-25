@@ -8,6 +8,7 @@ import getError from "../Utility/getError";
 import { Helmet } from "react-helmet-async";
 import Shipping from "./Shipping";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const Payment = () => {
   const navigate = useNavigate();
@@ -168,7 +169,9 @@ const Payment = () => {
           </div>
           <div className='my-4 z-0'>
             {isPending ? (
-              "Loading..."
+              <div className='flex justify-center w-full'>
+                <LoadingSpinner />
+              </div>
             ) : (
               <PayPalButtons
                 disabled={!shippingAddress.fullName}
