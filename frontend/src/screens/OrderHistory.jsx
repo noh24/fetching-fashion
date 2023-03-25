@@ -52,8 +52,8 @@ const OrderHistory = () => {
         {" "}
         <title>Order History</title>
       </Helmet>
-      <section className='space-y-4'>
-        <div className='flex items-end justify-between space-x-4'>
+      <section className='space-y-4 w-full px-2'>
+        <div className='flex items-end justify-between space-x-4 border-b-2 pb-4'>
           <h1 className='text-2xl font-medium'>Order History</h1>
           <button
             onClick={sortOrder}
@@ -63,16 +63,13 @@ const OrderHistory = () => {
             {desc ? "Most Recent to Oldest" : "Oldest to Most Recent"}
           </button>
         </div>
-        <section
-          key={orders}
-          className='space-y-4 flex flex-col lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-4'
-        >
+        <section className='space-y-4 flex flex-col'>
           {orders.map((order) => (
             <div
               key={order._id}
               className='rounded-lg px-12 py-8 shadow-sm shadow-gray-400 font-light hover:scale-105 bg-white'
             >
-              <Link to={`/order/${order._id}`} className='space-y-2'>
+              <Link to={`/order/${order._id}`} className='space-y-2 lg:flex lg:space-y-0 lg:justify-between'>
                 <p className='font-medium'>
                   <strong>Order Date: </strong>
                   {new Date(order.createdAt).toLocaleString()}
