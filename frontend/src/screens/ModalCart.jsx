@@ -56,7 +56,7 @@ const ModalCart = (props) => {
       <Helmet>
         <title>Cart</title>
       </Helmet>
-      <section className='relative flex-1 flex flex-col items-center space-y-2 bg-white overflow-y-auto no-scrollbar z-40 sm:w-1/2 lg:w-1/3 xl:w-1/3 2xl:w-1/4'>
+      <section className='relative flex-1 flex flex-col items-center space-y-2 bg-white overflow-y-scroll no-scrollbar z-40 sm:w-1/2 lg:w-1/3 xl:w-1/3 2xl:w-1/4'>
         {/* CART HEADER */}
         <h1 className='text-2xl p-4 flex items-end justify-between bg-white sticky top-0 font-light z-50 w-full'>
           <span>
@@ -66,7 +66,7 @@ const ModalCart = (props) => {
         </h1>
       {/* CART ITEMS */}
         {cart.length <= 0 ? (
-          <div className='flex-[2] flex items-center gap-1'>
+          <div className='flex-1 flex items-center gap-1'>
             Shopping cart empty.
             <span
               className='underline text-sky-600 font-medium cursor-pointer'
@@ -90,7 +90,7 @@ const ModalCart = (props) => {
                   />
                 </div>
 
-                <div className='flex-[2] flex flex-col justify-between space-y-1'>
+                <div className='flex-1 flex flex-col justify-between space-y-1'>
                   <div>
                     <Link to={`/product/${item._id}`} onClick={exitModalCart}>
                       <p className='font-medium'>{`${item.color} ${item.name}`}</p>
@@ -129,7 +129,7 @@ const ModalCart = (props) => {
           </section>
         )}
         {/* CHECKOUT */}
-        <section className='w-full flex-1 sm:flex-initial bg-white p-4 flex flex-col justify-center items-center space-y-4 py-4'>
+        <section className='w-full pb-32 sm:pb-4 sm:flex-initial bg-white p-4 flex flex-col justify-center items-center space-y-4 py-4'>
           <h1 className='text-2xl'>
             Subtotal ({cart.reduce((acc, curr) => acc + curr.quantity, 0)}{" "}
             Items): $
