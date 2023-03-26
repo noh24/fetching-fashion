@@ -129,7 +129,7 @@ const ModalCart = (props) => {
           </section>
         )}
         {/* CHECKOUT */}
-        <section className='w-full pb-32 sm:pb-4 sm:flex-initial bg-white p-4 flex flex-col justify-center items-center space-y-4 py-4'>
+        <section className='w-full pb-32 sm:pb-16 sm:flex-initial bg-white p-4 flex flex-col justify-center items-center space-y-4 py-4'>
           <h1 className='text-2xl'>
             Subtotal ({cart.reduce((acc, curr) => acc + curr.quantity, 0)}{" "}
             Items): $
