@@ -23,7 +23,7 @@ const FeaturedHomeSection = () => {
   }, [dispatch]);
 
   return (
-    <section className='my-10 sm:my-20 px-2 flex flex-col items-center justify-center'>
+    <section className='mt-8 sm:mt-16 px-2 flex flex-col items-center justify-center'>
       {loading ? (
         <div>
           <LoadingSpinner />
@@ -31,17 +31,17 @@ const FeaturedHomeSection = () => {
       ) : error ? (
         <div>{error}</div>
       ) : (
-        <>
+        <div className='text-center'>
           <Link to={`/products/winter-apparel`}>
-            <h1 className='sm:text-2xl text-xl mb-10 sm:mb-20'>
+            <h1 className='sm:text-2xl text-xl mb-8 sm:mb-12 font-medium text-sky-600 hover:opacity-60'>
               Shop Winter Apparel
             </h1>
           </Link>
-          <div className='w-full lg:grid lg:grid-cols-2'>
+          <div className='w-full lg:grid lg:grid-cols-2 lg:gap-8'>
             <Product product={products[0]}></Product>
             <Product product={products[products.length - 1]}></Product>
           </div>
-        </>
+        </div>
       )}
     </section>
   );
