@@ -98,7 +98,9 @@ const OrderHistory = () => {
                   </p>
                 </div>
                 <div>
+                  <Link to={`/order/${order._id}`}>
                   <ArrowForwardIosOutlinedIcon fontSize='small' />
+                  </Link>
                 </div>
               </div>
             ))}
