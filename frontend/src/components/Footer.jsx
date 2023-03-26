@@ -17,12 +17,12 @@ const Footer = () => {
     }
   };
   return (
-    <section className='w-full px-2 flex flex-col bg-gray-800 text-white py-4 lg:py-12'>
-      <article className='lg:grid lg:grid-cols-7 lg:grid-rows- flex flex-col justify-between items-center h-full space-y-8 lg:space-y-0'>
+    <section className='w-full mt-32 px-2 flex flex-col bg-gray-800 text-white py-4 lg:pb-12 lg:pt-8'>
+      <article className='lg:grid lg:grid-cols-5 lg:gap-8 flex flex-col justify-between items-center h-full space-y-8 lg:space-y-0'>
         {/* LOGO */}
-        <div className='xl:col-start-2 lg:col-span-2 row-span-2 flex flex-col justify-between items-center h-full pt-4'>
+        <div className='lg:col-start-2 lg:col-span-1 flex flex-col justify-between items-center h-full pt-4'>
           <img
-            className='object-cover w-56 invert'
+            className='object-cover w-56 -mt-4 invert'
             src='/images/fetching-fashion-1.png'
             alt='fetching fashion logo'
           />
@@ -31,7 +31,7 @@ const Footer = () => {
           </small>
         </div>
         {/* LINKS */}
-        <div className='grid grid-cols-2 lg:col-span-2 w-full'>
+        <div className='grid grid-cols-2 col-span-1 lg:gap-0 gap-12'>
           <div className='flex justify-center'>
             <div className='flex flex-col gap-1'>
               <Link className='hover:opacity-80' to='/'>Home</Link>
@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
         </div>
         {/* CTA */}
-        <div className='lg:col-span-2 flex flex-col'>
+        <div className='lg:col-span-1 flex flex-col'>
           <h1 className='font-medium text-lg text-white'>Let's Stay Connected</h1>
           <p className='text-gray-400'>Enter your email to unlock 10% OFF.</p>
           <form onSubmit={submitHandler} className='mt-4 flex-nowrap flex flex-auto'>
@@ -67,7 +67,7 @@ const Footer = () => {
             </button>
           </form>
         </div>
-        {/* COPYRIGHT */}
+        {/* COPYRIGHT FOR MOBILE */}
         <small className='lg:hidden'>
           Copyright &copy; 2023. All rights reserved.{" "}
         </small>
