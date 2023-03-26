@@ -6,6 +6,8 @@ import getError from "../Utility/getError";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import LoadingSpinner from "../components/LoadingSpinner";
+import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
+import { nanoid } from "nanoid";
 
 const OrderHistory = () => {
   const navigate = useNavigate();
@@ -52,8 +54,8 @@ const OrderHistory = () => {
         {" "}
         <title>Order History</title>
       </Helmet>
-      <section className='space-y-4'>
-        <div className='flex items-end justify-between space-x-4'>
+      <section className='space-y-4 w-full px-2'>
+        <div className='flex items-end justify-between space-x-4 border-b-2 pb-4'>
           <h1 className='text-2xl font-medium'>Order History</h1>
           <button
             onClick={sortOrder}
@@ -63,41 +65,104 @@ const OrderHistory = () => {
             {desc ? "Most Recent to Oldest" : "Oldest to Most Recent"}
           </button>
         </div>
-        <section
-          key={orders}
-          className='space-y-4 flex flex-col lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-4'
-        >
-          {orders.map((order) => (
-            <div
-              key={order._id}
-              className='rounded-lg px-12 py-8 shadow-sm shadow-gray-400 font-light hover:scale-105 bg-white'
-            >
-              <Link to={`/order/${order._id}`} className='space-y-2'>
-                <p className='font-medium'>
-                  <strong>Order Date: </strong>
-                  {new Date(order.createdAt).toLocaleString()}
-                </p>
-                <p>
-                  <strong>Order Id: </strong>
-                  {order._id}
-                </p>
-                <p>
-                  <strong>Payment Date: </strong>
-                  {new Date(order.paidAt).toLocaleString()}
-                </p>
-                <p>
-                  <strong>Total: </strong>${order.price.total.toFixed(2)}
-                </p>
-                <p>
-                  <strong>Delivered : </strong>
-                  {order.isDelivered
-                    ? new Date(order.deliveredAt).toLocaleString()
-                    : "No"}
-                </p>
-              </Link>
+        {/* Mobile Screens */}
+        {orders.map((order) => (
+          <article
+            key={order._id}
+            className='flex flex-col space-y-2 mx-auto min-w-fit w-4/5 sm:hidden'
+          >
+            {order.orderItems.map((item) => (
+              <div className='flex space-x-2 items-center' key={nanoid()}>
+                <img
+                  className='w-20 h-20 object-cover block'
+                  src={item.images[0]}
+                  alt={item.name}
+                />
+                <div className='space-y-1 text-sm '>
+                  <p className='font-semibold text-gray-800'>
+                    Order Placed: {new Date(order.createdAt).toLocaleString()}
+                  </p>
+                  <p className='text-sky-600'>
+                    <Link to={`/product/${item._id}`}>
+                      {order.orderItems[0].color +
+                        " " +
+                        order.orderItems[0].name}
+                      {" ..."}
+                    </Link>
+                  </p>
+                  <p>
+                    {order.isDelivered
+                      ? "Delivered " +
+                        new Date(order.deliveredAt).toLocaleString()
+                      : "Not Delivered"}
+                  </p>
+                </div>
+                <div>
+                  <ArrowForwardIosOutlinedIcon fontSize='small' />
+                </div>
+              </div>
+            ))}
+          </article>
+        ))}
+        {/* Browsers */}
+        {orders.map((order) => (
+          <article
+            key={order._id}
+            className='hidden sm:flex flex-col mx-auto justify-center max-w-xl space-y-4 shadow-md pb-4 rounded-lg'
+          >
+            {/* Header */}
+            <div className='flex justify-between border bg-gray-800 text-white py-4 px-3 rounded-t-lg '>
+              <p className='flex flex-col'>
+                <span className='uppercase text-xs text-gray-300'>
+                  Order Placed
+                </span>
+                {new Date(order.createdAt).toLocaleString()}
+              </p>
+              <p className='flex flex-col'>
+                <span className='uppercase text-xs text-gray-300'>Total</span>$
+                {order.price.total.toFixed(2)}
+              </p>
+              <p className='flex flex-col'>
+                <span className='uppercase text-xs text-gray-300'>Order #</span>
+                {order._id}
+              </p>
             </div>
-          ))}
-        </section>
+            {/* Body */}
+            <div className='flex flex-col px-3 space-y-1'>
+              <div className='flex justify-between items-end'>
+                <p className='font-bold text-lg text-gray-800'>
+                  {order.isDelivered
+                    ? "Delivered " +
+                      new Date(order.deliveredAt).toLocaleString()
+                    : "Not Delivered"}
+                </p>
+                <Link to={`/order/${order._id}`}>
+                  <p className='text-sm text-sky-600 font-medium'>
+                    View Order Details
+                  </p>
+                </Link>
+              </div>
+              <div className='flex flex-col gap-4'>
+                {order.orderItems.map((item) => (
+                  <div className='grid grid-cols-4 items-center' key={nanoid()}>
+                    <img
+                      className='w-20 h-20 object-cover block'
+                      src={item.images[0]}
+                      alt={item.name}
+                    />
+
+                    <p className='col-span-3 text-sm font-medium'>
+                      <Link to={`/product/${item._id}`}>
+                        {item.color + " " + item.name}
+                      </Link>
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <p className='self-center justify-self-end'></p>
+            </div>
+          </article>
+        ))}
       </section>
     </main>
   );
