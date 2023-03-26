@@ -9,14 +9,17 @@ import getError from "../Utility/getError";
 const Profile = () => {
   const navigate = useNavigate();
   const { state, dispatch: storeDispatch } = useContext(Store);
-  const [name, setName] = useState(state.userInfo.name);
-  const [email, setEmail] = useState(state.userInfo.email);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   useEffect(() => {
     if (!state.userInfo) {
-      navigate("/signin");
+      navigate("/signin?redirect=/profile");
+    } else {
+      setName(state.userInfo.name);
+      setEmail(state.userInfo.email);
     }
   }, [state.userInfo, navigate]);
 
