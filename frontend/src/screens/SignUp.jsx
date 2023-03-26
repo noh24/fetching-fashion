@@ -55,24 +55,28 @@ const SignUp = () => {
           className='py-2 px-3 w-full border border-gray-300 rounded-full focus:outline-none'
           type='text'
           placeholder='Name'
+          required
           onChange={(e) => setName(e.target.value)}
         />
         <input
           className='py-2 px-3 w-full border border-gray-300 rounded-full focus:outline-none'
           type='email'
           placeholder='Email Address'
+          required
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           className='py-2 px-3 w-full border border-gray-300 rounded-full focus:outline-none'
           type='password'
           placeholder='Password'
+          required
           onChange={(e) => setPassword(e.target.value)}
         />
         <input
           className='py-2 px-3 w-full border border-gray-300 rounded-full focus:outline-none'
           type='password'
           placeholder='Confirm Password'
+          required
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
         <div>
