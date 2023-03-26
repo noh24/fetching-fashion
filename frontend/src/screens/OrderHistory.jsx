@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet-async";
 import LoadingSpinner from "../components/LoadingSpinner";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import { nanoid } from "nanoid";
+import { parseISO, format } from "date-fns";
 
 const OrderHistory = () => {
   const navigate = useNavigate();
@@ -54,12 +55,13 @@ const OrderHistory = () => {
         {" "}
         <title>Order History</title>
       </Helmet>
-      <section className='space-y-4 w-full px-2'>
-        <div className='flex items-end justify-between space-x-4 border-b-2 pb-4'>
+      <section className='space-y-4 max-w-2xl w-full px-2'>
+        <div className='flex items-end justify-between space-x-4 pb-4'>
           <h1 className='text-2xl font-medium'>Order History</h1>
+          {/* DESCENDING/ASCENDING SORT ORDER */}
           <button
             onClick={sortOrder}
-            className='text-xs bg-gray-800 text-white rounded-full px-2 py-1 shadow'
+            className='text-xs font-medium bg-gray-800 text-white rounded-full px-3 py-1 shadow'
             type='button'
           >
             {desc ? "Most Recent to Oldest" : "Oldest to Most Recent"}
@@ -80,7 +82,7 @@ const OrderHistory = () => {
                 />
                 <div className='space-y-1 text-sm '>
                   <p className='font-semibold text-gray-800'>
-                    Order Placed: {new Date(order.createdAt).toLocaleString()}
+                    {format(parseISO(order.createdAt), "LLLL d, yyyy")}
                   </p>
                   <p className='text-sky-600'>
                     <Link to={`/product/${item._id}`}>
@@ -93,20 +95,20 @@ const OrderHistory = () => {
                   <p>
                     {order.isDelivered
                       ? "Delivered " +
-                        new Date(order.deliveredAt).toLocaleString()
+                        format(parseISO(order.deliveredAt), "LLLL d, yyyy")
                       : "Not Delivered"}
                   </p>
                 </div>
                 <div>
                   <Link to={`/order/${order._id}`}>
-                  <ArrowForwardIosOutlinedIcon fontSize='small' />
+                    <ArrowForwardIosOutlinedIcon fontSize='small' />
                   </Link>
                 </div>
               </div>
             ))}
           </article>
         ))}
-        {/* Browsers */}
+        {/* BROWSER SCREEN */}
         {orders.map((order) => (
           <article
             key={order._id}
@@ -118,7 +120,7 @@ const OrderHistory = () => {
                 <span className='uppercase text-xs text-gray-300'>
                   Order Placed
                 </span>
-                {new Date(order.createdAt).toLocaleString()}
+                {format(parseISO(order.createdAt), "LLLL d, yyyy")}
               </p>
               <p className='flex flex-col'>
                 <span className='uppercase text-xs text-gray-300'>Total</span>$
@@ -129,13 +131,13 @@ const OrderHistory = () => {
                 {order._id}
               </p>
             </div>
-            {/* Body */}
+            {/* BODY */}
             <div className='flex flex-col px-3 space-y-1'>
               <div className='flex justify-between items-end'>
                 <p className='font-bold text-lg text-gray-800'>
                   {order.isDelivered
                     ? "Delivered " +
-                      new Date(order.deliveredAt).toLocaleString()
+                      format(parseISO(order.deliveredAt), "LLLL d, yyyy")
                     : "Not Delivered"}
                 </p>
                 <Link to={`/order/${order._id}`}>
