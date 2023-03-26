@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { Store } from "../Store";
 import getError from "../Utility/getError";
+import { parseISO, format } from "date-fns";
 
 const Order = () => {
   const [loading, setLoading] = useState(true);
@@ -44,9 +45,9 @@ const Order = () => {
         <title>Order No. {params.id}</title>
       </Helmet>
       <section className='space-y-12 lg:col-span-3'>
-        <h1 className='text-2xl font-light'>Order No. {params.id}</h1>
+        <h1 className='text-2xl font-medium uppercase text-gray-800'>Order # {params.id}</h1>
         <article className='space-y-2'>
-          <h2 className='text-2xl text-gray-800'>Shipping Address</h2>
+          <h2 className='text-xl text-gray-800 font-medium'>Shipping Address</h2>
           <p>{order.shippingAddress.fullName}</p>
           <div>
             {order.shippingAddress.address}, {order.shippingAddress.city}{" "}
@@ -54,29 +55,29 @@ const Order = () => {
             {order.shippingAddress.country}
           </div>
           {order.isDelivered ? (
-            <div>
-              <strong>Delivered at:</strong>{" "}
-              {new Date(order.deliveredAt).toLocaleString()}
+            <div className='uppercase'>
+              <strong className='text-emerald-600'>Delivered </strong>{" "}
+              {format(parseISO(order.deliveredAt), 'LLLL d, yyyy')}
             </div>
           ) : (
-            <div>
-              <strong>Delivery Status:</strong> Not delievered
+            <div className='uppercase '>
+              <strong className='text-red-600'>Not delivered</strong>
             </div>
           )}
           {order.isPaid ? (
-            <div>
-              <strong>Paid on:</strong>{" "}
-              {new Date(order.paidAt).toLocaleString()}
+            <div className='uppercase'>
+              <strong className='text-emerald-600'>Paid </strong>{" "}
+              {format(parseISO(order.paidAt), 'LLLL d, yyyy')}
             </div>
           ) : (
-            <div>
-              <strong>Payment Status:</strong> Not paid
+            <div className='uppercase'>
+              <strong className='text-red-600'>Not paid</strong> 
             </div>
           )}
         </article>
 
         <article className='space-y-4'>
-          <h1 className='text-2xl text-gray-800'>Order Items</h1>
+          <h1 className='text-xl font-medium text-gray-800'>Order Items</h1>
           <div className='space-y-4'>
             {order.orderItems.map((item) => (
               <div key={item._id} className='flex space-x-4'>
@@ -85,12 +86,12 @@ const Order = () => {
                   src={item.images[0]}
                   alt={`${item.color} ${item.name}`}
                 />
-                <div className='flex flex-col'>
-                  <Link to={`/product/${item._id}`} className='font-medium'>
+                <div className='flex flex-col justify-center gap-1 font-medium'>
+                  <Link to={`/product/${item._id}`} className='font-medium text-sm'>
                     {item.color} {item.name}
                   </Link>
-                  <p>({item.quantity ? item.quantity : 1})</p>
-                  <p>${item.price}</p>
+                  <p className='text-gray-400 tracking-widest'>({item.quantity ? item.quantity : 1})</p>
+                  <p className='text-emerald-600 font-medium'>${item.price}</p>
                 </div>
               </div>
             ))}
@@ -98,23 +99,23 @@ const Order = () => {
         </article>
       </section>
 
-      <section className='lg:col-span-2 space-y-2'>
+      <section className='lg:col-span-2 space-y-2 border-t-2 pt-4 lg:pt-0 border-gray-400 lg:border-none font-medium'>
         <h1 className='text-xl text-gray-800 font-medium'>Order Summary</h1>
-        <article className='space-y-2'>
+        <article className='space-y-2 uppercase'>
           <div className='grid grid-cols-3'>
-            <p>Items</p>
+            <p className='text-sm'>Items</p>
             <p className='col-start-3'>${order.price.items.toFixed(2)}</p>
           </div>
           <div className='grid grid-cols-3'>
-            <p>Shipping</p>
+            <p className='text-sm'>Shipping</p>
             <p className='col-start-3'>${order.price.shipping.toFixed(2)}</p>
           </div>
           <div className='grid grid-cols-3'>
-            <p>Tax</p>
+            <p className='text-sm'>Tax</p>
             <p className='col-start-3'>${order.price.tax.toFixed(2)}</p>
           </div>
           <div className='grid grid-cols-3 border-t-2 pt-2'>
-            <p className='text-red-500'>
+            <p className='text-red-600'>
               <strong>Order Total</strong>
             </p>
             <p className='col-start-3'>${order.price.total.toFixed(2)}</p>

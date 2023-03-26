@@ -36,12 +36,15 @@ const Header = () => {
   };
 
   return (
-    <nav className='w-full flex items-center justify-between py-3 sm:py-4 lg:px-4 px-2 font-medium sticky top-0 z-50 bg-white border-b border-gray-200 mb-10 text-gray-800'>
+    <nav className='w-full flex items-center justify-between py-3 sm:py-4 lg:px-4 px-2 opacity-80 font-medium sticky top-0 z-50 bg-white border-b border-gray-200 mb-10 text-gray-800'>
       <div className=''>
         <Menu as='div' className='relative inline-block text-left z-10'>
           <div>
             <Menu.Button className='inline-flex w-full justify-center items-center rounded-md font-medium focus:outline-none capitalize'>
-              <div className=''>
+              <div className='sm:hidden'>
+                <MenuIcon fontSize='small' />
+              </div>
+              <div className='sm:block hidden'>
                 <MenuIcon fontSize='medium' />
               </div>
             </Menu.Button>
@@ -57,6 +60,18 @@ const Header = () => {
           >
             <Menu.Items className='absolute mt-2 sm:-mr-1 mr-1 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
               <div className='px-1 py-1 '>
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      onClick={() => routeTo("/")}
+                      className={`${
+                        active ? "bg-gray-800 text-white" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    >
+                      Home
+                    </button>
+                  )}
+                </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
                     <button
@@ -91,7 +106,12 @@ const Header = () => {
         <div className='relative'>
           {/* <NavLink to='/cart'> */}
           <NavLink onClick={toggleModalCart}>
-            <ShoppingBagOutlinedIcon fontSize='medium' />
+            <div className='sm:hidden'>
+              <ShoppingBagOutlinedIcon fontSize='small' />
+            </div>
+            <div className='sm:block hidden'>
+              <ShoppingBagOutlinedIcon fontSize='medium' />
+            </div>
           </NavLink>
           {cart.length > 0 && (
             <span className='absolute flex items-center justify-center top-0 -right-1 text-gray-200 bg-gray-900 border-white -900 border-2 w-3 h-3 rounded-full text-xs'></span>
@@ -102,7 +122,10 @@ const Header = () => {
         <Menu as='div' className='relative inline-block text-left z-10'>
           <div>
             <Menu.Button className='inline-flex w-full justify-center items-center rounded-md font-medium focus:outline-none capitalize'>
-              <div className=''>
+              <div className='sm:hidden'>
+                <PersonIcon fontSize='small' />
+              </div>
+              <div className='sm:block hidden'>
                 <PersonIcon fontSize='medium' />
               </div>
               {userInfo && (
