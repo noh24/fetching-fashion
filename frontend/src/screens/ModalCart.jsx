@@ -56,19 +56,20 @@ const ModalCart = (props) => {
       <Helmet>
         <title>Cart</title>
       </Helmet>
-      {/* Cart items */}
       <section className='relative flex-1 flex flex-col items-center space-y-2 bg-white overflow-y-auto no-scrollbar z-40 sm:w-1/2 lg:w-1/3 xl:w-1/3 2xl:w-1/4'>
+        {/* CART HEADER */}
         <h1 className='text-2xl p-4 flex items-end justify-between bg-white sticky top-0 font-light z-50 w-full'>
           <span>
             Cart <span className='font-normal'>({cart.length})</span>
           </span>
           <CloseIcon onClick={exitModalCart} className='cursor-pointer' />
         </h1>
+      {/* CART ITEMS */}
         {cart.length <= 0 ? (
-          <div className='flex-1 flex items-center gap-1'>
+          <div className='flex-[2] flex items-center gap-1'>
             Shopping cart empty.
             <span
-              className='underline text-blue-600 cursor-pointer'
+              className='underline text-sky-600 font-medium cursor-pointer'
               onClick={goShoppingLink}
             >
               Go shopping
@@ -89,7 +90,7 @@ const ModalCart = (props) => {
                   />
                 </div>
 
-                <div className='flex-1 flex flex-col justify-between space-y-1'>
+                <div className='flex-[2] flex flex-col justify-between space-y-1'>
                   <div>
                     <Link to={`/product/${item._id}`} onClick={exitModalCart}>
                       <p className='font-medium'>{`${item.color} ${item.name}`}</p>
@@ -127,7 +128,8 @@ const ModalCart = (props) => {
             ))}
           </section>
         )}
-        <section className='sticky w-full bottom-0 bg-white p-4 flex flex-col justify-around items-center space-y-4 py-4'>
+        {/* CHECKOUT */}
+        <section className='w-full flex-1 sm:flex-initial bg-white p-4 flex flex-col justify-center items-center space-y-4 py-4'>
           <h1 className='text-2xl'>
             Subtotal ({cart.reduce((acc, curr) => acc + curr.quantity, 0)}{" "}
             Items): $
