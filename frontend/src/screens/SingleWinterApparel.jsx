@@ -61,7 +61,7 @@ const SingleWinterApparel = () => {
   };
 
   return (
-    <main className='px-2 sm:px-4'>
+    <section className='px-2 sm:px-4'>
       {loading ? (
         <div>
           <LoadingSpinner />
@@ -69,11 +69,11 @@ const SingleWinterApparel = () => {
       ) : error ? (
         <div>{error}</div>
       ) : (
-        <section className='flex flex-col items-center lg:grid lg:grid-cols-2 justify-items-center'>
+        <div className='flex flex-col items-center lg:grid lg:grid-cols-2 justify-items-center'>
           <Helmet>
             <title>{`${product.name}`}</title>
           </Helmet>
-          <article className=''>
+          <section className=''>
             <div className='h-[350px] w-full md:h-[500px] md:w-[500px] overflow-hidden relative mb-4'>
               {product.images.map((item, index) => (
                 <div
@@ -115,9 +115,9 @@ const SingleWinterApparel = () => {
                 </div>
               ))}
             </div>
-          </article>
+          </section>
 
-          <article className='text-left flex flex-col items-center lg:items-start lg:px-16 lg:self-start'>
+          <section className='text-left flex flex-col items-center lg:items-start lg:px-16 lg:self-start'>
             <div className='space-y-4'>
               <Rating rating={product.rating} reviews={product.reviews} />
               <h3 className='text-2xl'>{`${product.color} ${product.name}`}</h3>
@@ -144,15 +144,15 @@ const SingleWinterApparel = () => {
                 ))}
               </ul>
             </div>
-          </article>
+          </section>
 
-          <article className='flex flex-col items-center lg:col-span-2'>
+          <section className='flex flex-col items-center lg:col-span-2'>
             <SizeTable />
             <SizeGuide />
-          </article>
-        </section>
+          </section>
+        </div>
       )}
-    </main>
+    </section>
   );
 };
 

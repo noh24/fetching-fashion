@@ -24,11 +24,11 @@ const Home = () => {
   });
 
   return (
-    <main className=''>
+    <section className=''>
       <Helmet>
         <title>Fetching Fashion</title>
       </Helmet>
-      <section className='relative overflow-hidden flex-nowrap flex flex-col'>
+      <div className='relative overflow-hidden flex-nowrap flex flex-col'>
         <div className='xl:flex xl:w-[60vw] xl:h-[60vh] hidden'>
           {slideShow.map((slide) => (
             <img
@@ -51,9 +51,9 @@ const Home = () => {
             ></img>
           ))}
         </div>
-      </section>
+      </div>
       <FeaturedHomeSection />
-    </main>
+    </section>
   );
 };
 

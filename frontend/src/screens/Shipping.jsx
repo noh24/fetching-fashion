@@ -57,7 +57,7 @@ const Shipping = () => {
   };
 
   return (
-    <main className='space-y-4 flex flex-col w-full'>
+    <section className='space-y-4 flex flex-col w-full'>
       <h1
         onClick={toggleShippingHandler}
         className='text-2xl font-medium flex justify-between cursor-pointer'
@@ -135,7 +135,7 @@ const Shipping = () => {
           </div>
         </article>
       )}
-    </main>
+    </section>
   );
 };
 

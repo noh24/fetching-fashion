@@ -40,13 +40,13 @@ const Order = () => {
   ) : error ? (
     <div>{error}</div>
   ) : (
-    <main className='lg:grid lg:grid-cols-5 lg:gap-20 px-2 space-y-12 lg:space-y-20 mb-12'>
+    <section className='lg:grid lg:grid-cols-5 lg:gap-20 px-2 space-y-12 lg:space-y-20 mb-12'>
       <Helmet>
         <title>Order No. {params.id}</title>
       </Helmet>
-      <section className='space-y-12 lg:col-span-3'>
+      <div className='space-y-12 lg:col-span-3'>
         <h1 className='text-2xl font-medium uppercase text-gray-800'>Order # {params.id}</h1>
-        <article className='space-y-2'>
+        <div className='space-y-2'>
           <h2 className='text-xl text-gray-800 font-medium'>Shipping Address</h2>
           <p>{order.shippingAddress.fullName}</p>
           <div>
@@ -74,9 +74,9 @@ const Order = () => {
               <strong className='text-red-600'>Not paid</strong> 
             </div>
           )}
-        </article>
+        </div>
 
-        <article className='space-y-4'>
+        <div className='space-y-4'>
           <h1 className='text-xl font-medium text-gray-800'>Order Items</h1>
           <div className='space-y-4'>
             {order.orderItems.map((item) => (
@@ -96,12 +96,12 @@ const Order = () => {
               </div>
             ))}
           </div>
-        </article>
-      </section>
+        </div>
+      </div>
 
-      <section className='lg:col-span-2 space-y-2 border-t-2 pt-4 lg:pt-0 border-gray-400 lg:border-none font-medium'>
+      <div className='lg:col-span-2 space-y-2 border-t-2 pt-4 lg:pt-0 border-gray-400 lg:border-none font-medium'>
         <h1 className='text-xl text-gray-800 font-medium'>Order Summary</h1>
-        <article className='space-y-2 uppercase'>
+        <div className='space-y-2 uppercase'>
           <div className='grid grid-cols-3'>
             <p className='text-sm'>Items</p>
             <p className='col-start-3'>${order.price.items.toFixed(2)}</p>
@@ -120,9 +120,9 @@ const Order = () => {
             </p>
             <p className='col-start-3'>${order.price.total.toFixed(2)}</p>
           </div>
-        </article>
-      </section>
-    </main>
+        </div>
+      </div>
+    </section>
   );
 };
 

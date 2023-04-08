@@ -48,15 +48,15 @@ const ModalCart = (props) => {
   };
 
   return (
-    <main className='flex flex-col sm:items-end h-screen'>
-      <section
+    <section className='flex flex-col sm:items-end h-screen'>
+      <div
         className='bg-transparent w-full flex-1 fixed inset-0'
         onClick={exitModalCart}
-      ></section>
+      ></div>
       <Helmet>
         <title>Cart</title>
       </Helmet>
-      <section className='relative flex-1 flex flex-col items-center space-y-2 bg-white overflow-y-scroll no-scrollbar z-40 sm:w-1/2 lg:w-1/3 xl:w-1/3 2xl:w-1/4'>
+      <div className='relative flex-1 flex flex-col items-center space-y-2 bg-white overflow-y-scroll no-scrollbar z-40 sm:w-1/2 lg:w-1/3 xl:w-1/3 2xl:w-1/4'>
         {/* CART HEADER */}
         <h1 className='text-2xl p-4 flex items-end justify-between bg-white sticky top-0 font-light z-50 w-full'>
           <span>
@@ -76,7 +76,7 @@ const ModalCart = (props) => {
             </span>
           </div>
         ) : (
-          <section className='mb-6 flex flex-col items-center space-y-8 flex-1 opacity-100 px-2 sm:px-8'>
+          <div className='mb-6 flex flex-col items-center space-y-8 flex-1 opacity-100 px-2 sm:px-8'>
             {cart.map((item) => (
               <article
                 key={item._id}
@@ -126,10 +126,10 @@ const ModalCart = (props) => {
                 </div>
               </article>
             ))}
-          </section>
+          </div>
         )}
         {/* CHECKOUT */}
-        <section className='w-full pb-32 sm:pb-16 sm:flex-initial bg-white p-4 flex flex-col justify-center items-center space-y-4 py-4'>
+        <div className='w-full pb-32 sm:pb-16 sm:flex-initial bg-white p-4 flex flex-col justify-center items-center space-y-4 py-4'>
           <h1 className='text-2xl'>
             Subtotal ({cart.reduce((acc, curr) => acc + curr.quantity, 0)}{" "}
             Items): $
@@ -144,9 +144,9 @@ const ModalCart = (props) => {
               Proceed To Checkout
             </button>
           </div>
-        </section>
-      </section>
-    </main>
+        </div>
+      </div>
+    </section>
   );
 };
 

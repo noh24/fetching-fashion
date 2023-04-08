@@ -96,15 +96,15 @@ const Payment = () => {
   };
 
   return (
-    <main className='max-w-4xl mb-10 lg:grid lg:auto-rows-fr lg:grid-cols-5 lg:gap-8 grid-cols-1 px-2 w-full relative'>
+    <section className='max-w-4xl mb-10 lg:grid lg:auto-rows-fr lg:grid-cols-5 lg:gap-8 grid-cols-1 px-2 w-full relative'>
       <Helmet>
         <title>Fetching Fashion Checkout</title>
       </Helmet>
-      <section className='col-span-3 space-y-4'>
+      <div className='col-span-3 space-y-4'>
         <Shipping />
 
         {/* CART */}
-        <article className='space-y-4'>
+        <section className='space-y-4'>
           <h1
             className='text-2xl font-medium flex justify-between cursor-pointer'
             onClick={() => setCollapseCart((prev) => !prev)}
@@ -138,13 +138,13 @@ const Payment = () => {
           ) : (
             <div></div>
           )}
-        </article>
-      </section>
+        </section>
+      </div>
 
       {/* Check out PAYMENTS */}
       <section className='col-span-2 space-y-4 mt-6 pt-4 sm:pt-0 sm:mt-0 sm:border-0 border-t-2 border-gray-800'>
         <h1 className='text-2xl font-medium'>Order Summary</h1>
-        <article className='grid grid-cols-1'>
+        <div className='grid grid-cols-1'>
           <div className='flex justify-between'>
             <p>
               Items ({cart.reduce((acc, curr) => acc + curr.quantity, 0)}):{" "}
@@ -182,9 +182,9 @@ const Payment = () => {
               ></PayPalButtons>
             )}
           </div>
-        </article>
+        </div>
       </section>
-    </main>
+    </section>
   );
 };
 

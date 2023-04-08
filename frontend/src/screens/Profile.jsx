@@ -48,7 +48,7 @@ const Profile = () => {
   };
 
   return (
-    <main className='py-4 px-2 space-y-4 flex flex-col'>
+    <section className='py-4 px-2 space-y-4 flex flex-col'>
       <Helmet>
         <title>My Profile</title>
       </Helmet>
@@ -87,7 +87,7 @@ const Profile = () => {
           </button>
         </div>
       </form>
-    </main>
+    </section>
   );
 };
 

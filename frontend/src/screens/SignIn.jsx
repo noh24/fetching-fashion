@@ -46,7 +46,7 @@ const SignIn = () => {
   };
 
   return (
-    <main className='py-4 px-2 space-y-4 flex flex-col'>
+    <section className='py-4 px-2 space-y-4 flex flex-col'>
       <Helmet>
         <title>Sign In</title>
       </Helmet>
@@ -87,7 +87,7 @@ const SignIn = () => {
       <p>
         New Customer? <Link to='/signup?redirect=/shipping' className='underline text-gray-800'>Sign Up</Link>
       </p>
-    </main>
+    </section>
   );
 };
 

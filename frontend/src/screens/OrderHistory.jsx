@@ -50,12 +50,12 @@ const OrderHistory = () => {
   ) : error ? (
     <div>{error}</div>
   ) : (
-    <main className='container mx-auto flex flex-col items-center mb-20'>
+    <div className='container mx-auto flex flex-col items-center mb-20'>
       <Helmet>
         {" "}
         <title>Order History</title>
       </Helmet>
-      <section className='space-y-4 max-w-2xl w-full px-2'>
+      <div className='space-y-4 max-w-2xl w-full px-2'>
         <div className='flex items-end justify-between space-x-4 pb-4'>
           <h1 className='text-2xl font-medium'>Order History</h1>
           {/* DESCENDING/ASCENDING SORT ORDER */}
@@ -69,7 +69,7 @@ const OrderHistory = () => {
         </div>
         {/* Mobile Screens */}
         {orders.map((order) => (
-          <article
+          <section
             key={order._id}
             className='flex flex-col space-y-2 mx-auto min-w-fit w-4/5 sm:hidden'
           >
@@ -106,11 +106,11 @@ const OrderHistory = () => {
                 </div>
               </div>
             ))}
-          </article>
+          </section>
         ))}
         {/* BROWSER SCREEN */}
         {orders.map((order) => (
-          <article
+          <section
             key={order._id}
             className='hidden sm:flex flex-col mx-auto justify-center max-w-xl space-y-4 shadow-md pb-4 rounded-lg'
           >
@@ -165,10 +165,10 @@ const OrderHistory = () => {
               </div>
               <p className='self-center justify-self-end'></p>
             </div>
-          </article>
+          </section>
         ))}
-      </section>
-    </main>
+      </div>
+    </div>
   );
 };
 

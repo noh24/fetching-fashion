@@ -14,7 +14,7 @@ const SharedLayout = () => {
   } = useContext(ToggleCartStore);
 
   return (
-    <div
+    <main
       className={`${
         toggleCart
           ? "h-screen overflow-hidden"
@@ -46,7 +46,7 @@ const SharedLayout = () => {
         <Outlet />
       </div>
       <Footer />
-    </div>
+    </main>
   );
 };
 

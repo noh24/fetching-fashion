@@ -23,7 +23,7 @@ const WinterApparel = () => {
   }, [dispatch]);
 
   return (
-    <main className='text-gray-500 flex flex-col items-center px-2 sm:px-4'>
+    <section className='text-gray-500 flex flex-col items-center px-2 sm:px-4'>
       <Helmet>
         <title>Winter Apparel</title>
       </Helmet>
@@ -35,13 +35,13 @@ const WinterApparel = () => {
       ) : error ? (
         <div>{error}</div>
       ) : (
-        <section className='lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-4'>
+        <div className='lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-4'>
           {products.map((item) => (
             <Product key={item._id} product={item}></Product>
           ))}
-        </section>
+        </div>
       )}
-    </main>
+    </section>
   );
 };
 
