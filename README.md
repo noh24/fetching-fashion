@@ -9,7 +9,7 @@
 Welcome to our online store for dog lovers! This ecommerce website is designed specifically for those who are passionate about their furry friends and want to provide them with the best dog clothes available. Please note that this website is created for learning purposes only and is not a real website where you can purchase dog clothes. All transactions are conducted using the PayPal Sandbox, which is a testing environment that does not actually charge your credit card.
 
 ## Live Website
-[Click here to visit our live website](https://fetching-fashion.herokuapp.com/)
+[No longer deployed](https://fetching-fashion.herokuapp.com/)
 
 ## Getting Started
 
